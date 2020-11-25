@@ -10,7 +10,7 @@ class Subject < ApplicationRecord
   belongs_to_active_hash :week_genre
 
   with_options presence: true do
-    validates :class
+    validates :curriculum
     validates :unit
     validates :unit_sum
     validates :university

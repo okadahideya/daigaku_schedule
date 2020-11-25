@@ -1,4 +1,4 @@
-class ResultGenre < ApplicationRecord
+class ResultGenre < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: '取得' },

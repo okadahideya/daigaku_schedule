@@ -2,7 +2,7 @@ class CreateSubjects < ActiveRecord::Migration[6.0]
   def change
     create_table :subjects do |t|
     t.references :user,             foreign_key: true
-    t.string     :class,            null: false
+    t.string     :curriculum,            null: false
     t.integer    :unit,             null: false
     t.integer    :period_genre_id,  null: false
     t.integer    :select_genre_id,  null: false

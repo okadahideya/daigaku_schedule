@@ -1,4 +1,4 @@
-class PeriodGenre < ApplicationRecord
+class PeriodGenre < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: '前期' },

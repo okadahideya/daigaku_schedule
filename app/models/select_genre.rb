@@ -1,4 +1,4 @@
-class SelectGenre < ApplicationRecord
+class SelectGenre < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: '必修科目' },

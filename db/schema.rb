@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_030750) do
 
   create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "class", null: false
+    t.string "curriculum", null: false
     t.integer "unit", null: false
     t.integer "period_genre_id", null: false
     t.integer "select_genre_id", null: false
