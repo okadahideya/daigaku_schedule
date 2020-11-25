@@ -42,7 +42,7 @@ has_many :schedules
 | user_id       | references | foreign_key: true |
 | class         | string     | null: false       |
 | unit          | integer    | null: false       |
-| priod_genre   | integer    | null: false       |
+| period_genre   | integer    | null: false       |
 | select_genre  | integer    | null: false       |
 | week_genre    | integer    | null: false       |
 | time_genre    | integer    | null: false       |

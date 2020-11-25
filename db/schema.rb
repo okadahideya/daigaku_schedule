@@ -16,15 +16,15 @@ ActiveRecord::Schema.define(version: 2020_11_25_030750) do
     t.bigint "user_id"
     t.string "class", null: false
     t.integer "unit", null: false
-    t.integer "priod_genre", null: false
-    t.integer "select_genre", null: false
-    t.integer "week_genre", null: false
-    t.integer "time_genre", null: false
-    t.integer "grade_genre", null: false
-    t.integer "result_genre", null: false
+    t.integer "period_genre_id", null: false
+    t.integer "select_genre_id", null: false
+    t.integer "week_genre_id", null: false
+    t.integer "time_genre_id", null: false
+    t.integer "grade_genre_id", null: false
+    t.integer "result_genre_id", null: false
     t.integer "unit_sum", null: false
     t.string "university", null: false
-    t.string "string", null: false
+    t.string "undergraduate", null: false
     t.string "department", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
