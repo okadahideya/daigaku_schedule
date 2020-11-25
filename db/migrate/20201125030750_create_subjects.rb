@@ -11,9 +11,6 @@ class CreateSubjects < ActiveRecord::Migration[6.0]
     t.integer    :grade_genre_id,   null: false
     t.integer    :result_genre_id,  null: false
     t.integer    :unit_sum,         null: false
-    t.string     :university,       null: false
-    t.string     :undergraduate,    null: false
-    t.string     :department,       null: false
     t.timestamps
     end
   end

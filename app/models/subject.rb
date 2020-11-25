@@ -13,9 +13,6 @@ class Subject < ApplicationRecord
     validates :curriculum
     validates :unit
     validates :unit_sum
-    validates :university
-    validates :undergraduate
-    validates :department
     validates :grade_genre_id,  numericality: { other_than: 1 }
     validates :period_genre_id, numericality: { other_than: 1 }
     validates :result_genre_id, numericality: { other_than: 1 }
