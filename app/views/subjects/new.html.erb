@@ -4,80 +4,36 @@
   <div class="department-main">学科</div>
   <div class="subject-registration-main">教材の登録をしてください</div>
 
-  <%= form_with model: @subject, url:subjects_path, method: :post,　local: true do |f| %>
+  <%= form_for @subject, local: true do |f| %>
   <div class="grade-period">
+  
     <div class="block">
-      <div class="grade-main">学年
-        <span class="indispensable">[必須]</span>
-      </div>
-        <%= f.collection_select(:grade_genre_id, GradeGenre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <div class="grade-main">学年
+          <span class="indispensable">[必須]</span>
+        </div>
+        <%= select("subject_detail", "select_genre_id", SubjectDetail.grade.map { |s| [s[:name], s[:id]] })%>
     </div>
 
     <div class="block">
-      <div class="period-main">時期
-        <span class="indispensable">[必須]</span>
+        <div class="period-main">時期
+          <span class="indispensable">[必須]</span>
+        </div>
+        <%= select("subject_detail", "select_genre_id", SubjectDetail.period.map { |s| [s[:name], s[:id]] })%>
       </div>
-        <%= f.collection_select(:period_genre_id, PeriodGenre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-    </div>
   </div>
   
-  <div class="registration">
-    <div class="block">
-      <div class="curriculum-main">教材名
-        <span class="indispensable">[必須]</span>
-      </div>
-        <%= f.text_area :curriculum, class:"curriculum-text", id:"item-name", placeholder:"教材名を記載してください" %>
+  <%= f.fields_for :subject_details do |subject_detail| %>
+     <%= render 'subject_detail_fields', f: subject_detail %>
+  <% end %>
+    <div class="links">
+      <%= link_to_add_association '追加', f, :subject_details %>
     </div>
 
-    <div class="block">
-      <div class="unit-main">単位
-        <span class="indispensable">[必須]</span>
-      </div>
-        <%= f.text_area :unit, class:"unit-text", id:"item-name", placeholder:"単位数" %>
-    </div>
-
-    <div class="block">  
-      <div class="select-main">科目
-        <span class="indispensable">[必須]</span>
-      </div>
-        <%= f.collection_select(:select_genre_id, SelectGenre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-    </div>
-
-    <div class="block"> 
-      <div class="week-main">曜日
-        <span class="indispensable">[必須]</span>
-      </div>
-        <%= f.collection_select(:week_genre_id, WeekGenre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-    </div>
-
-    <div class="block"> 
-      <div class="time-main">何限
-        <span class="indispensable">[必須]</span>
-      </div>
-        <%= f.collection_select(:time_genre_id, TimeGenre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-    </div>
-
-    <div class="block"> 
-      <div class="result-main">結果
-        <span class="indispensable">[必須]</span>
-      </div>
-        <%= f.collection_select(:result_genre_id, ResultGenre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-    </div>
-
-     <div class="block-button"> 
-        <%= f.submit "-", class: "remove", id: "remove" %>
-      </div>
-      <div class="block-button">
-        <%=f.submit "+", class: "add", id: "add" %>
-      </div>
-  </div>
-
-    <div class="unit-sum-main">単位合計
-    </div>
-
-  　<div class="sell-btn-contents">
+    <div class="sell-btn-contents">
       <%= f.submit "保存" ,class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
   <% end %>
+
+
 </div>
