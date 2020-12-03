@@ -13,6 +13,7 @@ class SubjectsController < ApplicationController
 
   def create
      @subject = Subject.new(subject_params)
+    
     if @subject.save
       redirect_to root_path
     else
@@ -24,7 +25,7 @@ class SubjectsController < ApplicationController
 
   def subject_params
     params.require(:subject).permit(:grade_genre_id, :period_genre_id, 
-    subject_details_attributes: [:_destroy, :curriculum, :unit, :result_genre_id, :select_genre_id, :time_genre_id, :week_genre_id]).merge(user_id: current_user.id, subject_id: subject.id)
+    subject_details_attribute: [:_destroy, :curriculum, :unit, :result_genre_id, :select_genre_id, :time_genre_id, :week_genre_id]).merge(user_id: current_user.id)
   end
 
 end

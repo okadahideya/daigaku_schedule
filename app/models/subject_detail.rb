@@ -2,6 +2,16 @@ require 'json'
 class SubjectDetail <  ApplicationRecord
   belongs_to :user
   belongs_to :subject
+  with_options presence: true do
+    validates :curriculum
+    validates :unit
+    validates :result_genre_id
+    validates :select_genre_id
+    validates :time_genre_id
+    validates :week_genre_id
+  end
+
+
 
   GRADE_GENRE = [
     { id: 1, name: '--' },
