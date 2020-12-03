@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_091225) do
+ActiveRecord::Schema.define(version: 2020_12_01_022832) do
+
+  create_table "subject_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "subject_id"
+    t.string "curriculum", null: false
+    t.integer "unit", null: false
+    t.integer "select_genre_id", null: false
+    t.integer "week_genre_id", null: false
+    t.integer "time_genre_id", null: false
+    t.integer "result_genre_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subject_id"], name: "index_subject_details_on_subject_id"
+    t.index ["user_id"], name: "index_subject_details_on_user_id"
+  end
+
+  create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "period_genre_id", null: false
+    t.integer "grade_genre_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_subjects_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -18,6 +42,9 @@ ActiveRecord::Schema.define(version: 2020_11_24_091225) do
     t.string "name", null: false
     t.string "name_k", null: false
     t.string "nickname", null: false
+    t.string "university", null: false
+    t.string "undergraduate", null: false
+    t.string "department", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -27,4 +54,7 @@ ActiveRecord::Schema.define(version: 2020_11_24_091225) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "subject_details", "subjects"
+  add_foreign_key "subject_details", "users"
+  add_foreign_key "subjects", "users"
 end

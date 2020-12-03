@@ -1,0 +1,39 @@
+<div class="subject-new">
+ <div class="university-main">大学名</div>
+  <div class="undergraduate-main">学部</div>
+  <div class="department-main">学科</div>
+  <div class="subject-registration-main">教材の登録をしてください</div>
+
+  <%= form_for @subject, local: true do |f| %>
+  <div class="grade-period">
+  
+    <div class="block">
+        <div class="grade-main">学年
+          <span class="indispensable">[必須]</span>
+        </div>
+        <%= select("subject_detail", "select_genre_id", SubjectDetail.grade.map { |s| [s[:name], s[:id]] })%>
+    </div>
+
+    <div class="block">
+        <div class="period-main">時期
+          <span class="indispensable">[必須]</span>
+        </div>
+        <%= select("subject_detail", "select_genre_id", SubjectDetail.period.map { |s| [s[:name], s[:id]] })%>
+      </div>
+  </div>
+  
+  <%= f.fields_for :subject_details do |subject_detail| %>
+     <%= render 'subject_detail_fields', f: subject_detail %>
+  <% end %>
+    <div class="links">
+      <%= link_to_add_association '追加', f, :subject_details %>
+    </div>
+
+    <div class="sell-btn-contents">
+      <%= f.submit "保存" ,class:"sell-btn" %>
+      <%=link_to '戻る', root_path, class:"back-btn" %>
+    </div>
+  <% end %>
+
+
+</div>
