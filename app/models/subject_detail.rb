@@ -1,5 +1,7 @@
 require 'json' 
 class SubjectDetail <  ApplicationRecord
+  belongs_to :user
+  belongs_to :subject
 
   GRADE_GENRE = [
     { id: 1, name: '--' },
