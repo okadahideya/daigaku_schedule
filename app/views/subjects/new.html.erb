@@ -1,7 +1,7 @@
 <div class="subject-new">
- <div class="university-main">大学名</div>
-  <div class="undergraduate-main">学部</div>
-  <div class="department-main">学科</div>
+ <div class="university-main">大学名: <%= @user.university %></div>
+  <div class="undergraduate-main">学部: <%= @user.undergraduate %></div>
+  <div class="department-main">学科: <%= @user.department %></div>
   <div class="subject-registration-main">教材の登録をしてください</div>
 
   <%= form_for @subject, local: true do |f| %>
