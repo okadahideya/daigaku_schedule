@@ -6,24 +6,27 @@
 
   <%= form_for @subject, local: true do |f| %>
   <div class="grade-period">
-  
     <div class="block">
         <div class="grade-main">学年
           <span class="indispensable">[必須]</span>
         </div>
-        <%= select(:subject, :grade_genre_id, SubjectDetail.grade.map { |s| [s[:name], s[:id]] })%>
+        <%#= select(:subject, :grade_genre_id, SubjectDetail.grade.map { |s| [s[:name], s[:id]] })%>
+        <%= f.select(:grade_genre_id, SubjectDetail.grade.map { |s| [s[:name], s[:id]] })%>
     </div>
 
     <div class="block">
         <div class="period-main">時期
           <span class="indispensable">[必須]</span>
         </div>
-        <%= select(:subject, :period_genre_id, SubjectDetail.period.map { |s| [s[:name], s[:id]] })%>
+        <%#= select(:subject, :period_genre_id, SubjectDetail.period.map { |s| [s[:name], s[:id]] })%>
+        <%= f.select(:period_genre_id, SubjectDetail.period.map { |s| [s[:name], s[:id]] })%>
       </div>
   </div>
   
-  <%= f.fields_for :subject_details do |subject_detail| %>
-     <%= render 'subject_detail_fields', f: subject_detail %>
+  <%#= f.fields_for :subject_details do |subject_detail| %>     
+  <%#= render 'subject_detail_fields', f: subject_detail %>
+  <%= f.fields_for :subject_details do |subject_detail_fields| %>
+     <%= render 'subject_detail_fields', f: subject_detail_fields %>
   <% end %>
     <div class="links">
       <%= link_to_add_association '追加', f, :subject_details %>

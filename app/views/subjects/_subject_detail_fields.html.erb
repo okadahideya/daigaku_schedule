@@ -1,5 +1,6 @@
 <div class="nested-fields">
     <div class="registration", id="new_text" >
+    <%= f.hidden_field :user_id, value:current_user.id %>
     <div class="block">
       <div class="curriculum-main">教材名
         <span class="indispensable">[必須]</span>
@@ -18,28 +19,34 @@
       <div class="select-main">科目
         <span class="indispensable">[必須]</span>
       </div>
-        <%= select(:subject_detail, :select_genre_id, SubjectDetail.select.map { |s| [s[:name], s[:id]] })%>
+        <%# binding.pry %>
+        <%#= select(:subject_detail, :select_genre_id, SubjectDetail.select.map { |s| [s[:name], s[:id]] })%>
+        <%= f.select(:select_genre_id, SubjectDetail.select.map { |s| [s[:name], s[:id]] })%>
     </div>
+
 
     <div class="block"> 
       <div class="week-main">曜日
         <span class="indispensable">[必須]</span>
       </div>
-        <%= select(:subject_detail, :week_genre_id, SubjectDetail.week.map { |s| [s[:name], s[:id]] })%>
+        <%#= select(:subject_detail, :week_genre_id, SubjectDetail.week.map { |s| [s[:name], s[:id]] })%>
+        <%= f.select(:week_genre_id, SubjectDetail.week.map { |s| [s[:name], s[:id]] })%>
     </div>
 
     <div class="block"> 
       <div class="time-main">何限
         <span class="indispensable">[必須]</span>
       </div>
-      <%= select(:subject_detail, :time_genre_id, SubjectDetail.time.map { |s| [s[:name], s[:id]] })%>
+      <%#= select(:subject_detail, :time_genre_id, SubjectDetail.time.map { |s| [s[:name], s[:id]] })%>
+      <%= f.select(:time_genre_id, SubjectDetail.time.map { |s| [s[:name], s[:id]] })%>
     </div>
 
     <div class="block"> 
       <div class="result-main">結果
         <span class="indispensable">[必須]</span>
       </div>
-      <%= select(:subject_detail, :result_genre_id, SubjectDetail.result.map { |s| [s[:name], s[:id]] })%>
+      <%#= select(:subject_detail, :result_genre_id, SubjectDetail.result.map { |s| [s[:name], s[:id]] })%>
+      <%= f.select(:result_genre_id, SubjectDetail.result.map { |s| [s[:name], s[:id]] })%>
     </div>
     <%= link_to_remove_association '削除', f, class: 'registration' %>
 </div>

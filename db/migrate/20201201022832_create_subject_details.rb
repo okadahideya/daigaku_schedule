@@ -8,7 +8,7 @@ class CreateSubjectDetails < ActiveRecord::Migration[6.0]
       t.integer    :select_genre_id,  null: false
       t.integer    :week_genre_id,    null: false
       t.integer    :time_genre_id,    null: false
-      t.integer    :result_genre_id
+      t.integer    :result_genre_id,  null: false
       t.timestamps
     end
   end

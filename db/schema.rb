@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_022832) do
     t.integer "select_genre_id", null: false
     t.integer "week_genre_id", null: false
     t.integer "time_genre_id", null: false
-    t.integer "result_genre_id"
+    t.integer "result_genre_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["subject_id"], name: "index_subject_details_on_subject_id"
