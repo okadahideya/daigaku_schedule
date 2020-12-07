@@ -1,1 +1,5 @@
-<%= link_to '教材登録', new_subject_path, class: 'subject-botton'%>
+<%= render "shared/header" %>
+
+<%= link_to '教材・単位登録', new_subject_path, metod: :get,class: 'subject-title' %>
+
+<%= link_to '教材登録', subject_path(current_user.id), class: 'subject-botton'%>

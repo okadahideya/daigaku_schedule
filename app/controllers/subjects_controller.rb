@@ -21,6 +21,11 @@ class SubjectsController < ApplicationController
    end
   end
 
+  def show
+    @subject = Subject.find(params[:id])
+    @subject_details = SubjectDetail.find(params[:id])
+  end
+
   private
 
   def subject_params
