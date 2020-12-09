@@ -1,0 +1,22 @@
+<h1>
+  教材一覧
+</h1>
+<%# 検索結果の個数で条件分岐 %>
+<% if @results.length !=0 %>
+  <% @results.each do |result| %>
+    <td>
+    <br>
+    <li>
+      <%= result.curriculum %>
+      <%= result.unit %>
+      <%= result.select_genre_id %>
+      <%= result.week_genre_id %>
+      <%= result.time_genre_id %>
+      <%= result.result_genre_id %>
+    </li>
+  <% end %>
+<% else %>
+  該当する教材はありません
+<% end %>
+<br>
+<%= link_to 'トップページへ戻る', root_path %>

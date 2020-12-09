@@ -13,7 +13,6 @@ class SubjectDetail < ApplicationRecord
 
 
   GRADE_GENRE = [
-    { id: 1, name: '--' },
     { id: 2, name: '1回生' },
     { id: 3, name: '2回生' },
     { id: 4, name: '3回生' },
