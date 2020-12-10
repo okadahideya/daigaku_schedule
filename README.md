@@ -1,32 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-＃テーブル設計
+# テーブル設計
 
 
-##usersテーブル
+## usersテーブル
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
 | email    | string | null: false |
 | password | string | null: false |
 | name     | string | null: false |
@@ -38,11 +17,13 @@ has_many :timetable
 has_many :bytes
 has_many :schedules
 
-##subjectsテーブル
+## subjectsテーブル
+| Column        | Type       | Options           |
+| ------------- | ---------- | ----------------- |
 | user_id       | references | foreign_key: true |
 | class         | string     | null: false       |
 | unit          | integer    | null: false       |
-| period_genre   | integer    | null: false       |
+| period_genre  | integer    | null: false       |
 | select_genre  | integer    | null: false       |
 | week_genre    | integer    | null: false       |
 | time_genre    | integer    | null: false       |
@@ -58,6 +39,8 @@ has_many   :timetable
 
 
 ##timetablesテーブル
+| Column        | Type       | Options           |
+| ------------- | ---------- | ----------------- |
 | user_id       | references | foreign_key: true |
 | subject_id    | references | foreign_key: true |
 ### Association
@@ -65,7 +48,9 @@ belongs_to :user
 belongs_to :subject
 
 
-##schedulesテーブル
+## schedulesテーブル
+| Column        | Type       | Options           |
+| ------------- | ---------- | ----------------- |
 | user_id       | references | foreign_key: true |
 | subject_id    | references | foreign_key: true |
 | part_time_id  | references | foreign_key: true |
@@ -77,7 +62,9 @@ belongs_to :subject
 belongs_to :user
 has_many   :bytes
 
-##bytesテーブル
+## bytesテーブル
+| Column        | Type       | Options           |
+| ------------- | ---------- | ----------------- |
 | user_id       | references | foreign_key: true |
 | schedule_id   | references | foreign_key: true |
 | day           | date       | null: false       |

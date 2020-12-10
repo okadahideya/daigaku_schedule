@@ -2,6 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.big-bg{
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+#home{
+  background-image: url(../images/top_page.jpg);
+  min-height: 100%;
+}
+
+#home .title{
+  text-transform: none;
+}
+
 .grade-period{
   display: flex;
 }
