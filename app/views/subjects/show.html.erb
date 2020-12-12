@@ -17,10 +17,10 @@
   <li>
     <%= ff.curriculum %>
     <%= ff.unit %>
-    <%= ff.select_genre_id %>
-    <%= ff.week_genre_id %>
-    <%= ff.time_genre_id %>
-    <%= ff.result_genre_id %>
+    <%= genre_select[ff.select_genre_id] %>
+    <%= genre_week[ff.week_genre_id] %>
+    <%= genre_time[ff.time_genre_id] %>
+    <%= genre_result[ff.result_genre_id] %>
   </li>
     <% end %>
 <% end %>

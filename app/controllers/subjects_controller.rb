@@ -10,8 +10,6 @@ class SubjectsController < ApplicationController
     if user_signed_in?
       @subject = Subject.new
       @subject_details = @subject.subject_details.build
-      @subject_details = @subject.subject_details.build
-      @subject_details = @subject.subject_details.build
     else
       render :index
     end

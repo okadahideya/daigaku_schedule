@@ -9,10 +9,10 @@
     <li>
       <%= result.curriculum %>
       <%= result.unit %>
-      <%= result.select_genre_id %>
-      <%= result.week_genre_id %>
-      <%= result.time_genre_id %>
-      <%= result.result_genre_id %>
+      <%= genre_select[result.select_genre_id] %>
+      <%= genre_week[result.week_genre_id] %>
+      <%= genre_time[result.time_genre_id] %>
+      <%= genre_result[result.result_genre_id] %>
     </li>
   <% end %>
 <% else %>
