@@ -1,0 +1,26 @@
+<h1>
+  教材一覧
+</h1>
+<%# 検索結果の個数で条件分岐 %>
+<% if @results.length !=0 %>
+  <% @results.each do |result| %>
+    <td>
+    <br>
+    <li>
+      <%= result.curriculum %>
+      <%= result.unit %>
+      <%= genre_select[result.select_genre_id] %>
+      <%= genre_week[result.week_genre_id] %>
+      <%= genre_time[result.time_genre_id] %>
+      <%= genre_result[result.result_genre_id] %>
+    </li>
+  <% end %>
+<% else %>
+  該当する教材はありません
+<% end %>
+<br>
+<%= "単位合計" %>
+<%= @results_unit %>
+<br>
+<%= link_to 'トップページへ戻る', root_path %>
+<%= link_to '教材の更新・編集', edit_subject_path(current_user.id), method: :get %>

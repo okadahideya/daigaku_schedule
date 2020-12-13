@@ -1,0 +1,23 @@
+.top-page-header{
+ display: flex;
+ justify-content: space-between;
+}
+
+.wrapper{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+.header-title{
+  font-size: 50px;
+}
+
+.sign-user{
+  display: flex;
+  list-style: none;
+}
+
+.sign-user li {
+  margin-left: 36px;
+}

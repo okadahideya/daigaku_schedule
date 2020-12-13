@@ -1,4 +1,7 @@
 class SubjectsController < ApplicationController
+
+  before_action :search_product, only: [:show, :search, :edit]
+
   def index
   end
 
@@ -21,6 +24,24 @@ class SubjectsController < ApplicationController
    end
   end
 
+  def show
+    @subject_details = SubjectDetail.where(user_id: params[:id])
+    @unit_sum = SubjectDetail.where(user_id: params[:id]).sum(:unit)
+  end 
+
+  def search
+    @results = @p.result.where(user_id: current_user.id).includes(:subject) 
+    @results_unit = @results.sum(:unit)
+  end
+
+  def edit
+    @subject = Subject.find(params[:id])
+  end
+
+  def update
+    
+  end
+
   private
 
   def subject_params
@@ -28,5 +49,8 @@ class SubjectsController < ApplicationController
     subject_details_attributes: [:id, :user_id, :curriculum, :unit, :result_genre_id, :select_genre_id, :time_genre_id, :week_genre_id, :_destroy]).merge(user_id: current_user.id)
   end
 
+  def search_product
+    @p = SubjectDetail.ransack(params[:q])
+  end
 
 end

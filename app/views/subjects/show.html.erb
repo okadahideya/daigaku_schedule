@@ -1,0 +1,37 @@
+<h1>教材登録一覧</h1>
+
+<%= search_form_for @p, url: subjects_search_path do |f| %>
+  <%= f.label :subject_grade_genre_id_eq, '学年：' %>
+  <%= f.select(:subject_grade_genre_id_eq, SubjectDetail.grade.map { |s| [s[:name], s[:id]] }) %>
+  <br>
+  <%= f.label :subject_period_genre_id_eq, '期間：' %>
+  <%= f.select(:subject_period_genre_id_eq, SubjectDetail.period.map { |s| [s[:name], s[:id]] })%>
+  <br>
+  <%= f.submit '検索' %>
+
+    <div class="block">
+      <%= link_to '教材の更新・編集', edit_subject_path(current_user.id), method: :get %>
+    </div>
+  </div>
+
+ <br>
+  <%= '教材一覧' %>
+    <% @subject_details.each do |ff| %>
+  <td>
+  <br>
+  <li>
+    <%= ff.curriculum %>
+    <%= ff.unit %>
+    <%= genre_select[ff.select_genre_id] %>
+    <%= genre_week[ff.week_genre_id] %>
+    <%= genre_time[ff.time_genre_id] %>
+    <%= genre_result[ff.result_genre_id] %>
+  </li>
+    <% end %>
+    <br>
+  <%= "単位合計" %> <%= @unit_sum %>
+<% end %>
+
+
+
+ 

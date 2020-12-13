@@ -33,6 +33,8 @@ class SubjectDetail < ApplicationRecord
     GRADE_GENRE
   end
 
+  
+
   PERIOD_GENRE = [
     { id: 1, name: '--' },
     { id: 2, name: '前期' },
@@ -50,6 +52,7 @@ class SubjectDetail < ApplicationRecord
     { id: 3, name: '選択科目' },
     { id: 4, name: 'その他' }
   ]
+
     def self.select
       SELECT_GENRE
     end
