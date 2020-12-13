@@ -9,6 +9,11 @@
   <br>
   <%= f.submit '検索' %>
 
+    <div class="block">
+      <%= link_to '教材の更新・編集', edit_subject_path(current_user.id), method: :get %>
+    </div>
+  </div>
+
  <br>
   <%= '教材一覧' %>
     <% @subject_details.each do |ff| %>
@@ -23,6 +28,8 @@
     <%= genre_result[ff.result_genre_id] %>
   </li>
     <% end %>
+    <br>
+  <%= "単位合計" %> <%= @unit_sum %>
 <% end %>
 
 

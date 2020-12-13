@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
 
-  before_action :search_product, only: [:show, :search]
+  before_action :search_product, only: [:show, :search, :edit]
 
   def index
   end
@@ -26,10 +26,20 @@ class SubjectsController < ApplicationController
 
   def show
     @subject_details = SubjectDetail.where(user_id: params[:id])
+    @unit_sum = SubjectDetail.where(user_id: params[:id]).sum(:unit)
   end 
 
   def search
     @results = @p.result.where(user_id: current_user.id).includes(:subject) 
+    @results_unit = @results.sum(:unit)
+  end
+
+  def edit
+    @subject = Subject.find(params[:id])
+  end
+
+  def update
+    
   end
 
   private
