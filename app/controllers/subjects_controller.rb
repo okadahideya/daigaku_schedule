@@ -3,6 +3,7 @@ class SubjectsController < ApplicationController
   before_action :search_product, only: [:show, :search, :edit]
 
   def index
+    @schedules = Schedule.all
   end
 
   def new

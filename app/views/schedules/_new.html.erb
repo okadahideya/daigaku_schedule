@@ -1,0 +1,24 @@
+<h1>schedule</h1>
+
+<%= form_with model: @schedules_new, url: schedules_path, local: true do |f| %>
+  <%= f.date_select :start_time, {use_month_numbers: true, start_year: 2020}, class:"reservation-select" %>
+  <br>
+  <div>タイトル：</div><%= f.text_field :title %>
+  <div>詳細：</div><%= f.text_field :text %>
+  <div>場所：</div><%= f.text_field :area %>
+  <div>時間：</div><%= f.time_select :time %>
+  <br>
+  <%= f.submit "登録" %>
+<% end %>
+
+
+  <%= month_calendar events: schedules do |date, schedule| %>
+  <%= date.day %>
+  <% schedule.each do |f| %>
+    <% if f.user_id == current_user.id %>
+      <%= link_to f.title, '#', class: "text-primary" %>
+    <% end %>
+  <% end %>
+<% end %>
+
+

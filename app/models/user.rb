@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :subjects
   has_many :subject_details, dependent: :destroy
+  has_many :schedules
+  
   with_options presence: true do
     validates :university
     validates :undergraduate
