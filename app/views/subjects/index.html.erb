@@ -1,9 +1,8 @@
-<div id="home" class="big-bg">
 
 <%= render "shared/header" %>
 
 <div class="title">
-    <%= link_to '教材登録', new_subject_path, metod: :get,class: 'subject-title' %>
+    <%= link_to '教材登録', new_subject_path, metod: :get, class: 'subject-title' %>
   <% if user_signed_in? %>
     <%= link_to '教材登録一覧表', subject_path(current_user.id), class: 'subject-botton'%>
   <% end %>
@@ -11,4 +10,3 @@
 
 <%= render partial: "schedules/new", locals: { schedules: @schedules } %>
 
-</div><!-- /#home -->

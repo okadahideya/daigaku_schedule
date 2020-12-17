@@ -4,5 +4,4 @@ Rails.application.routes.draw do
   get 'subjects/search'
   resources :subjects 
   resources :schedules
-  post "/" => "subjects#index"
 end
