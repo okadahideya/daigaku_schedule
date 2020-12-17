@@ -1,5 +1,5 @@
 
-  <%= form_for @subject, local: true do |f| %>
+<%= form_for @subject, local: true do |f| %>
   <div class="grade-period">
     <div class="block">
         <div class="grade-main">学年
@@ -13,18 +13,56 @@
           <span class="indispensable">[必須]</span>
         </div>
         <%= f.select(:period_genre_id, SubjectDetail.period.map { |s| [s[:name], s[:id]] })%>
-      </div>
-  </div>
-  
-  <%= f.fields_for :subject_details do |subject_detail_fields| %>
-     <%= render 'subject_detail_fields', f: subject_detail_fields %>
-  <% end %>
-    <div class="links">
-      <%= link_to_add_association '追加', f, :subject_details %>
     </div>
 
-    <div class="sell-btn-contents">
-      <%= f.submit "保存" ,class:"sell-btn" %>
-      <%=link_to '戻る', root_path, class:"back-btn" %>
+  <div class="nested-fields">
+    <div class="registration", id="new_text" >
+
+    <%= f.hidden_field :user_id, value:current_user.id %>
+
+    <div class="block">
+      <div class="curriculum-main">教材名
+        <span class="indispensable">[必須]</span>
+      </div>
+        <%= f.text_area :curriculum, class:"curriculum-text", id:"item-name", placeholder:"教材名を記載してください" %>
     </div>
-  <% end %>
+
+    <div class="block">
+      <div class="unit-main">単位
+        <span class="indispensable">[必須]</span>
+      </div>
+        <%= f.text_area :unit, class:"unit-text", id:"item-name", placeholder:"単位数" %>
+    </div>
+
+    <div class="block">  
+      <div class="select-main">科目
+        <span class="indispensable">[必須]</span>
+      </div>
+        <%= f.select(:select_genre_id, SubjectDetail.select.map { |s| [s[:name], s[:id]] })%>
+    </div>
+
+
+    <div class="block"> 
+      <div class="week-main">曜日
+        <span class="indispensable">[必須]</span>
+      </div>
+        <%= f.select(:week_genre_id, SubjectDetail.week.map { |s| [s[:name], s[:id]] })%>
+    </div>
+
+    <div class="block"> 
+      <div class="time-main">何限
+        <span class="indispensable">[必須]</span>
+      </div>
+      <%= f.select(:time_genre_id, SubjectDetail.time.map { |s| [s[:name], s[:id]] })%>
+    </div>
+
+    <div class="block"> 
+      <div class="result-main">結果
+        <span class="indispensable">[必須]</span>
+      </div>
+      <%= f.select(:result_genre_id, SubjectDetail.result.map { |s| [s[:name], s[:id]] })%>
+    </div>
+    <%= link_to_remove_association '削除', f, class: 'registration' %>
+</div>
+   
+<% end %>

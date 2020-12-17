@@ -35,7 +35,7 @@ class SubjectsController < ApplicationController
   end
 
   def edit
-    @subject = Subject.find(params[:id])
+    @subject = Subject.where(user_id: params[:id]).includes(:subject_detail) 
   end
 
   def update
