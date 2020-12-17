@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_022832) do
+ActiveRecord::Schema.define(version: 2020_12_14_053406) do
+
+  create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "title", null: false
+    t.date "start_time", null: false
+    t.text "text"
+    t.string "area"
+    t.time "time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_schedules_on_user_id"
+  end
 
   create_table "subject_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -54,6 +66,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_022832) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "schedules", "users"
   add_foreign_key "subject_details", "subjects"
   add_foreign_key "subject_details", "users"
   add_foreign_key "subjects", "users"

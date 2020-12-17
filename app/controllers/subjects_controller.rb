@@ -1,8 +1,8 @@
 class SubjectsController < ApplicationController
-
   before_action :search_product, only: [:show, :search, :edit]
 
   def index
+    @schedules = Schedule.where(user_id: current_user.id)
   end
 
   def new
@@ -35,7 +35,7 @@ class SubjectsController < ApplicationController
   end
 
   def edit
-    @subject = Subject.find(params[:id])
+    @subject = Subject.where(user_id: params[:id]).includes(:subject_detail) 
   end
 
   def update

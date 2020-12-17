@@ -1,0 +1,12 @@
+<h1>予定編集</h1>
+
+<%= form_with model: @schedules, url: schedule_path do |f| %>
+  <%= f.date_select :start_time, {use_month_numbers: true, start_year: 2020}, class:"reservation-select" %>
+  <div>タイトル：</div><%= f.text_field :title %>
+  <div>詳細：</div><%= f.text_field :text %>
+  <div>場所：</div><%= f.text_field :area %>
+  <div>時間：</div><%= f.time_select :time %>
+  <br>
+  <%= f.submit "予定変更" %>
+  <%= link_to '削除', schedule_path(@schedules.id), method: :delete %>
+<% end %>

@@ -1,0 +1,32 @@
+<h1>schedule</h1>
+
+<div>予定</div>
+<% schedules.each do |f| %>
+<%= f.start_time %>
+<%= f.title %>
+<%= f.time%>
+<%= f.area %>
+<%= f.text %>
+<br>
+<% end%>
+
+<%= form_with model: @schedules_new, url: schedules_path, method: :POST, local: true  do |f| %>
+  <%= f.date_select :start_time, {use_month_numbers: true, start_year: 2020}, class:"reservation-select" %>
+  <div>タイトル：</div><%= f.text_field :title %>
+  <div>詳細：</div><%= f.text_field :text %>
+  <div>場所：</div><%= f.text_field :area %>
+  <div>時間：</div><%= f.time_select :time %>
+  <br>
+  <%= f.submit "登録" %>
+<% end %>
+
+
+
+<%= month_calendar events: schedules do |date, schedule| %>
+  <%= date.day %>
+  <% schedule.each do |f| %>
+      <%= link_to f.title, edit_schedule_path(f.id),  method: :get, class: "text-primary" %>
+  <% end %>
+<% end %>
+
+
