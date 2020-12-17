@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :schedules
   
   with_options presence: true do
+    PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
+    validates :password, format: { with: PASSWORD_REGEX, message: 'はアルファベットと数字を含めてください' }, length: { minimum: 6 }, on: :create
+    validates :nickname
     validates :university
     validates :undergraduate
     validates :department
