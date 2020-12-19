@@ -8,7 +8,7 @@ class SchedulesController < ApplicationController
   def create
     @schedules_new = Schedule.new(schedules_params)
     if @schedules_new.save
-       redirect_to root_path
+       redirect_to controller: :subjects, action: :index
     else
       render 'subjects/index'
     end
@@ -19,7 +19,7 @@ class SchedulesController < ApplicationController
 
   def update
     if @schedules.update(schedules_params_up)
-      redirect_to root_path
+      redirect_to controller: :subjects, action: :index
     else
       render :edit
     end
@@ -27,7 +27,7 @@ class SchedulesController < ApplicationController
 
   def destroy
     @schedules.destroy
-    redirect_to root_path
+    redirect_to controller: :subjects, action: :index
   end
 
   private

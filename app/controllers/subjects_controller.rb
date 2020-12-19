@@ -1,4 +1,5 @@
 class SubjectsController < ApplicationController
+  before_action :authenticate_user!
   before_action :search_product, only: [:show, :search, :edit]
 
   def index
@@ -18,7 +19,7 @@ class SubjectsController < ApplicationController
   def create
     @subject = Subject.new(subject_params)
    if @subject.save
-     redirect_to root_path
+     redirect_to action: :index
    else
      render :new
    end
