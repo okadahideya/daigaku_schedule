@@ -4,6 +4,37 @@
   <%= render "professors/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label '大学名/university' %><br />
+    <%= f.text_field :university_p, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label '学部/undergraduate' %><br />
+    <%= f.text_field :undergraduate_p, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label '学科/department' %><br />
+    <%= f.text_field :department_p, autofocus: true %>
+  </div>
+
+  <div class="field">
+  <span class="image-file">プロフィール画像</span>
+  <%= f.file_field :image, class: 'hidden' %>
+  </div>
+
+  <div class="field">
+    <%= f.label '自己紹介/professors_detail' %><br />
+    <%= f.text_field :professors_detail, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label '資格/qualification' %><br />
+    <%= f.text_field :qualification, autofocus: true %>
+  </div>
+
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>

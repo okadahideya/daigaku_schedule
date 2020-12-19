@@ -47,6 +47,11 @@
   </div>
 
   <div class="field">
+  <span class="image-file">プロフィール画像</span>
+  <%= f.file_field :image, class: 'hidden' %>
+  </div>
+
+  <div class="field">
     <%= f.label '自己紹介/professors_detail' %><br />
     <%= f.text_field :professors_detail, autofocus: true %>
   </div>

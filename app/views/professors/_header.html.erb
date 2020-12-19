@@ -3,7 +3,7 @@
   <div class="sign">
     <ul class="sign-user">
       <% if professor_signed_in? %>
-        <li><%= link_to "#{current_professor.name_p}", edit_professor_registration_path, class: 'user-nickname' %></li>
+        <li><%= link_to "#{current_professor.name_p} 教授", edit_professor_registration_path, class: 'user-nickname' %></li>
         <li><%= link_to 'ログアウト', destroy_professor_session_path, method: :delete, class: 'logout' %></li>
       <% else %>
         <li><%= link_to 'ログイン', new_professor_session_path, class: 'login' %></li>

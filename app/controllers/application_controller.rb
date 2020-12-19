@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :name_k, :nickname, :university, :undergraduate, :department])
       devise_parameter_sanitizer.permit(:account_update, keys: [:nickname])
     else resource_class == Professor
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name_p, :name_k_p, :university_p, :undergraduate_p, :department_p, :professors_detail, :qualification])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name_p, :name_k_p, :university_p, :undergraduate_p, :department_p, :professors_detail, :qualification, :image])
       devise_parameter_sanitizer.permit(:account_update, keys: [:professors_detail, :qualification])
     end
   end
