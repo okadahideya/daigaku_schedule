@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     passwords:     'professors/passwords',
     registrations: 'professors/registrations'
   }
-
+  
   scope :professors do
     resources :professors
   end
@@ -23,4 +23,5 @@ Rails.application.routes.draw do
     resources :schedules
   end
 
+  
 end
