@@ -1,0 +1,10 @@
+<h1>講義一覧</h1>
+
+<%#= link_to '編集', edit_lecture_path%>
+<div>講義名</div>
+<% @lecture.each do |f| %>
+  <%= link_to f.lecture_title, '#' %>
+  <br>
+<% end %>
+
+<%= link_to 'トップページ', professors_path, metod: :get %>

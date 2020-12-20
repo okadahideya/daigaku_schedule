@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 2020_12_20_020524) do
 
   create_table "lectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "professor_id"
-    t.string "lecture_title"
-    t.text "contents"
+    t.string "lecture_title", null: false
+    t.text "contents", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["professor_id"], name: "index_lectures_on_professor_id"
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_020524) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "lectures", "professors"
   add_foreign_key "schedules", "users"
   add_foreign_key "subject_details", "subjects"
   add_foreign_key "subject_details", "users"
