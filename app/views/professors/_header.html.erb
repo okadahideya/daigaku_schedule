@@ -1,0 +1,14 @@
+<header class='top-page-header wrapper'>
+  <%= link_to '大学 Life', '#', method: :get, class: "header-title" %>
+  <div class="sign">
+    <ul class="sign-user">
+      <% if professor_signed_in? %>
+        <li><%= link_to "#{current_professor.name_p} 教授", edit_professor_registration_path, class: 'user-nickname' %></li>
+        <li><%= link_to 'ログアウト', destroy_professor_session_path, method: :delete, class: 'logout' %></li>
+      <% else %>
+        <li><%= link_to 'ログイン', new_professor_session_path, class: 'login' %></li>
+        <li><%= link_to '新規登録', new_professor_registration_path, class: 'sign-up' %></li>
+      <% end %>
+    </ul>
+  </div>
+</header>
