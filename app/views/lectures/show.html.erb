@@ -3,7 +3,7 @@
 <%#= link_to '編集', edit_lecture_path%>
 <div>講義名</div>
 <% @lecture.each do |f| %>
-  <%= link_to f.lecture_title, '#' %>
+  <%= link_to f.lecture_title, lecture_lecture_details_path(f.id), method: :get %>
   <br>
 <% end %>
 

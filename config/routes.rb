@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   
   scope :professors do
     resources :professors
-    resources :lectures
+    resources :lectures do
+      resources :lecture_details
+    end
   end
 
   devise_for :users, controllers: {
