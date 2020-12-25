@@ -17,6 +17,5 @@
 <% @lecture_detail.each do |f| %>
   <%= f.lecture_date %>
   <%= link_to f.lecture_title_list, lecture_lecture_detail_path(@lecture_detail, f.id), method: :get %>
-  <%= f.lecture_office %>
   <br>
 <% end %>

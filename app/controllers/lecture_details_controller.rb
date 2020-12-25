@@ -23,6 +23,14 @@ class LectureDetailsController < ApplicationController
     @lecture_detail = LectureDetail.find(params[:id])
   end
 
+  def download
+    @lecture_detail = LectureDetail.find(params[:id])
+    send_data(
+      ActiveStorage::Blob.service.send(:path_for, @lecture_detail.lecture_office.key), 
+      type: @lecture_detail.lecture_office.content_type, filename: @lecture_detail.lecture_office.filename
+      )
+  end
+
   private
 
   def lecture_detail_params
