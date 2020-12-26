@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   
   scope :professors do
     resources :professors
+    resources :submissions
     resources :lectures do
       resources :lecture_details do
         member do
@@ -23,8 +24,6 @@ Rails.application.routes.draw do
       end
     end
   end
-
-  
 
   scope :users do
     get 'subjects/search'
