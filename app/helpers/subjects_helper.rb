@@ -1,4 +1,5 @@
 module SubjectsHelper
+  
   def genre_select
     select_genre = ['0', '--', '必修科目','選択科目', 'その他']
   end

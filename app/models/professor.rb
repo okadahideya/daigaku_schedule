@@ -5,7 +5,7 @@ class Professor < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :image
   has_many :lectures
-  has_many :lecture_details
+  has_many :lecture_details, dependent: :destroy
 
   with_options presence: true do
     PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze

@@ -6,4 +6,5 @@
 <br>
 <h1>こちらから提出してください</h1>
 
-<%= link_to '提出する', new_submission_path, method: :get %>
+<%#= link_to '提出する', new_submission_path, method: :get %>
+<%= render partial: "submissions/new", locals: { submissions: @submission } %>

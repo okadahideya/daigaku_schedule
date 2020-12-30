@@ -19,8 +19,28 @@ class LectureDetailsController < ApplicationController
     end
   end
 
+  def edit
+    @lecture_detail = LectureDetail.find(params[:id])
+  end
+
+  def update
+    @lecture_detail = LectureDetail.find(params[:id])
+    if  @lecture_detail.update(lecture_detail_params)
+      redirect_to action: :index, id: @lecture_detail.lecture_id
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @lecture_detail = LectureDetail.find(params[:id])
+    @lecture_detail.destroy
+    redirect_to lecture_lecture_details_path(@lecture_detail.lecture_id)
+  end
+
   def show
     @lecture_detail = LectureDetail.find(params[:id])
+    @submission = Submission.where(lecture_detail_id: @lecture_detail.id)
   end
 
   def download

@@ -5,6 +5,7 @@
     <%= link_to '教材登録', new_subject_path, metod: :get, class: 'subject-title' %>
   <% if user_signed_in? %>
     <%= link_to '教材登録一覧表', subject_path(current_user.id), class: 'subject-botton'%>
+    <%= link_to '講義検索', search_lecture_selects_path, class: 'subject-botton'%>
   <% end %>
 </div>
 

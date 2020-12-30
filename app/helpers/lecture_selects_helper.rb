@@ -1,0 +1,2 @@
+module LectureSelectsHelper
+end
