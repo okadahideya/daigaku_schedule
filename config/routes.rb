@@ -24,13 +24,21 @@ Rails.application.routes.draw do
     end
   end
 
-  
-
   scope :users do
     get 'subjects/search'
-    resources :subjects 
-    resources :schedules
+    resources :subjects, :schedules
+      resources :lecture_details, only:[:show] do
+        resources :submissions do
+          member do
+            get :download
+          end
+        end
+      end
+    resources :lecture_selects, only:[:search, :show] do
+      collection do
+        get 'search'
+      end
+    end
   end
 
-  
 end

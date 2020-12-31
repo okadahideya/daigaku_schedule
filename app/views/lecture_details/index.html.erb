@@ -4,8 +4,10 @@
 
 <%= link_to '戻る', lecture_path(current_professor.id), metod: :get %>
 <br>
-<%= link_to '講義更新', new_lecture_lecture_detail_path(@lecture.id) %>
+<%= link_to '講義更新', new_lecture_lecture_detail_path(@lecture.id), metod: :get %>
 <br>
+
+
 <%= @lecture.lecture_title %>
 <br>
 <%= image_tag @lecture.lecture_image.variant(resize: '300x300'), class: 'professor_image' if @lecture.lecture_image.attached? %>
@@ -17,5 +19,7 @@
 <% @lecture_detail.each do |f| %>
   <%= f.lecture_date %>
   <%= link_to f.lecture_title_list, lecture_lecture_detail_path(@lecture_detail, f.id), method: :get %>
+  <%= link_to '編集', edit_lecture_lecture_detail_path(@lecture_detail, f.id), method: :get %>
+  <%= link_to '削除', lecture_lecture_detail_path(@lecture_detail, f.id), method: :delete %>
   <br>
 <% end %>

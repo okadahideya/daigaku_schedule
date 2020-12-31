@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :subjects
   has_many :subject_details, dependent: :destroy
   has_many :schedules
+  has_many :submissions, dependent: :destroy
   
   with_options presence: true do
     PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze

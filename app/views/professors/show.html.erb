@@ -27,8 +27,13 @@
 <%= @professor.qualification %>
 </div>
 
+<% if professor_signed_in? %>
 <% if current_professor.id == @professor.id%>
   <%= link_to '編集', edit_professor_registration_path %>
+  <%= link_to 'トップページ', professors_path, metod: :get %>
+<% end %>
 <% end %>
 
-<%= link_to 'トップページ', professors_path, metod: :get %>
+<% if user_signed_in? %>
+  <%= link_to 'トップページ', subjects_path, metod: :get %>
+<% end %>

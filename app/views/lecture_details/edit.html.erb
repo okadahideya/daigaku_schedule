@@ -1,0 +1,17 @@
+<h1>講義編集</h1>
+
+<%= form_with model:@lecture_detail, url: lecture_lecture_detail_path(@lecture_detail.lecture_id), local: true do |f| %>
+<div>日付</div>
+  <%= f.date_select :lecture_date, {use_month_numbers: true, start_year: 2020} %>
+  <br>
+<div>講義タイトル</div>
+  <%= f.text_field :lecture_title_list %>
+  <br>
+<div>講義詳細</div>
+  <%= f.text_field :lecture_text %>
+  <br>
+<div>講義資料</div>
+  <%= f.file_field :lecture_office %>
+  <br>
+  <%= f.submit '更新' %>
+<% end %>
