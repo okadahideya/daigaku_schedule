@@ -1,6 +1,8 @@
 <h1>講義詳細</h1>
 
 <div>
+<%= link_to @lecture.professor.name_p, professor_path(@lecture.professor_id) %>
+<br>
 <%= @lecture.lecture_title %>
 <br>
 <%= image_tag @lecture.lecture_image.variant(resize: '300x300'), class: 'professor_image' if @lecture.lecture_image.attached? %>
