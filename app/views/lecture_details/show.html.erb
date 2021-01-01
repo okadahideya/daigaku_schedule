@@ -8,3 +8,5 @@
 
 <%#= link_to '提出する', new_submission_path, method: :get %>
 <%= render partial: "submissions/new", locals: { submissions: @submission } %>
+<br>
+<%= link_to 'Q&A', lecture_detail_questions_path(@lecture_detail.id) %>

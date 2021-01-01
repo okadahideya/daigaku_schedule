@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     resources :professors
     resources :lectures do
       resources :lecture_details do
+        resources :answers do
+          resources :comments, only: :create
+        end
         member do
          get :download
         end
@@ -28,7 +31,8 @@ Rails.application.routes.draw do
     get 'subjects/search'
     resources :subjects, :schedules
       resources :lecture_details, only:[:show] do
-        resources :submissions do
+        resources :submissions, :questions do
+          resources :comments, only: :create
           member do
             get :download
           end

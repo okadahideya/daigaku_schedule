@@ -1,0 +1,13 @@
+<h1>Q&A</h1>
+
+<div>講義タイトル</div>
+<%= @lecture_detail.lecture_title_list %>
+
+<br>
+<%= render partial: "questions/new", locals: { question: @question } %>
+<br>
+<% @question.each do |f| %>
+  <div>投稿者</div><%= f.user.name %>
+  <%= link_to f.question_text, lecture_detail_question_path(@question,f.id), method: :get %>
+  <br>
+<% end %>

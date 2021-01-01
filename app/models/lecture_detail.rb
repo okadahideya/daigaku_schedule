@@ -3,6 +3,7 @@ class LectureDetail < ApplicationRecord
   belongs_to :professor
   belongs_to :lecture
   has_many :submissions, dependent: :destroy
+  has_many :questions
 
   with_options presence: true do
     validates :lecture_date

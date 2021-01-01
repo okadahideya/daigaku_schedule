@@ -1,0 +1,4 @@
+<%= form_with model: @question_new, url: lecture_detail_questions_path(@lecture_detail.id), method: :POST, local: true  do |f| %>
+  <div>質問フォーム</div><%= f.text_field :question_text %>
+  <%= f.submit "質問を投稿する" %>
+<% end %>
