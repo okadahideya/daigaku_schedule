@@ -4,8 +4,9 @@ class Professor < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one_attached :image
-  has_many :lectures
+  has_many :lectures, dependent: :destroy
   has_many :lecture_details, dependent: :destroy
+  has_many :answers, dependent: :destroy
 
   with_options presence: true do
     PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze

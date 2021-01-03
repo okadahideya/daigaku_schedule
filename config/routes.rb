@@ -17,8 +17,10 @@ Rails.application.routes.draw do
     resources :professors
     resources :lectures do
       resources :lecture_details do
-        resources :answers do
-          resources :comments, only: :create
+        resources :questions do
+          resources :answers do
+            resources :comments, only: :create
+          end
         end
         member do
          get :download
@@ -26,6 +28,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
 
   scope :users do
     get 'subjects/search'

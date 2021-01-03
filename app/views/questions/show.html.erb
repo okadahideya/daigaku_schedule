@@ -1,2 +1,12 @@
 <h1>回答</h1>
 
+<%= render partial: "answers/new", locals: { answer: @answer } %>
+
+<div>Q :</div>
+<%= @question.question_text %>
+<br>
+<div>A :</div>
+<% @answer.each do |f| %>
+  <%= f.answer_text%>
+  <br>
+<% end %>

@@ -1,12 +1,17 @@
+
+<% if user_signed_in? %>
 <div>提出物を選択</div>
 <%= form_with model:@submission_new, url: lecture_detail_submissions_path(@lecture_detail.id), method: :post, local: true do |f| %>
   <%= f.file_field :user_office %>
   <br>
   <%= f.submit '提出' %>
 <% end %>
+<% end %>
+
 
 <% submissions.each do |f| %>
   <% if professor_signed_in? %>
+    <%= f.user.name %>
     <%= link_to f.user_office.filename, rails_blob_path(f.user_office, disposition: 'attachment') %>
   <% end %>
 
