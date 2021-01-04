@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_26_061259) do
+ActiveRecord::Schema.define(version: 2021_01_01_064423) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 2020_12_26_061259) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "professor_id"
+    t.bigint "question_id"
+    t.text "answer_text", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["professor_id"], name: "index_answers_on_professor_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "lecture_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -71,6 +81,16 @@ ActiveRecord::Schema.define(version: 2020_12_26_061259) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_professors_on_email", unique: true
     t.index ["reset_password_token"], name: "index_professors_on_reset_password_token", unique: true
+  end
+
+  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "lecture_detail_id"
+    t.text "question_text", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lecture_detail_id"], name: "index_questions_on_lecture_detail_id"
+    t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
   create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -137,9 +157,13 @@ ActiveRecord::Schema.define(version: 2020_12_26_061259) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "answers", "professors"
+  add_foreign_key "answers", "questions"
   add_foreign_key "lecture_details", "lectures"
   add_foreign_key "lecture_details", "professors"
   add_foreign_key "lectures", "professors"
+  add_foreign_key "questions", "lecture_details"
+  add_foreign_key "questions", "users"
   add_foreign_key "schedules", "users"
   add_foreign_key "subject_details", "subjects"
   add_foreign_key "subject_details", "users"

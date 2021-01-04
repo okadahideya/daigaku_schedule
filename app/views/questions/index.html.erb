@@ -1,0 +1,25 @@
+<h1>Q&A</h1>
+
+<div>講義タイトル</div>
+<%= @lecture_detail.lecture_title_list %>
+
+<br>
+<%= render partial: "questions/new", locals: { question: @question } %>
+<br>
+<% @question.each do |f| %>
+  <%= f.updated_at.to_s(:datetime_jp) %>
+  <div>投稿者</div><%= f.user.name %>
+
+  <% if professor_signed_in? %>
+    <%= link_to f.question_text, lecture_lecture_detail_question_path(@question, f.lecture_detail_id, f.id) %>
+  <% end %>
+
+  <%if user_signed_in? %>
+      <%= link_to f.question_text, lecture_detail_question_path(@question, f.id) %>
+  <% if current_user.id == f.user_id %>
+    <%= link_to '編集', edit_lecture_detail_question_path(@question, f.id), method: :get %>
+    <%= link_to '削除', lecture_detail_question_path(@question, f.id), method: :delete %>
+  <% end%>
+  <% end%>
+  <br>
+<% end %>

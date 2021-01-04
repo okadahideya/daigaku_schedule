@@ -1,10 +1,19 @@
 <%= @lecture_detail.lecture_title_list %>
 <br>
-<%= link_to @lecture_detail.lecture_office.filename, rails_blob_path(@lecture_detail.lecture_office, disposition: 'attachment') %>
+  <%= link_to @lecture_detail.lecture_office.filename, rails_blob_path(@lecture_detail.lecture_office, disposition: 'attachment') %>
 <br>
-<%= @lecture_detail.lecture_text%>
+  <%= @lecture_detail.lecture_text%>
 <br>
 <h1>こちらから提出してください</h1>
 
 <%#= link_to '提出する', new_submission_path, method: :get %>
 <%= render partial: "submissions/new", locals: { submissions: @submission } %>
+<br>
+
+<% if user_signed_in? %>
+  <%= link_to 'Q&A', lecture_detail_questions_path(@lecture_detail.id) %>
+<% end %>
+
+<% if professor_signed_in? %>
+  <%= link_to 'Q&A',  lecture_lecture_detail_questions_path(@lecture_detail.id, @lecture_detail) %>
+<% end %>
