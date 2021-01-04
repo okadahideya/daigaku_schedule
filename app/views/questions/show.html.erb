@@ -8,5 +8,9 @@
 <div>A :</div>
 <% @answer.each do |f| %>
   <%= f.answer_text%>
+    <% if professor_signed_in? %>
+    <%= link_to '編集', edit_lecture_lecture_detail_question_answer_path(@answer, f.question_id, f.id), method: :get %>
+    <%= link_to '削除', lecture_lecture_detail_question_answer_path(@answer, f.question_id, f.id), method: :delete %>
+    <% end %>
   <br>
 <% end %>

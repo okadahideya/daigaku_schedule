@@ -18,9 +18,7 @@ Rails.application.routes.draw do
     resources :lectures do
       resources :lecture_details do
         resources :questions do
-          resources :answers do
-            resources :comments, only: :create
-          end
+          resources :answers 
         end
         member do
          get :download
@@ -35,7 +33,6 @@ Rails.application.routes.draw do
     resources :subjects, :schedules
       resources :lecture_details, only:[:show] do
         resources :submissions, :questions do
-          resources :comments, only: :create
           member do
             get :download
           end

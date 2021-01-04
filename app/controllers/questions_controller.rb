@@ -24,6 +24,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    @lecture_detail = LectureDetail.find(params[:id])
     @question = Question.find(params[:id])
     if @question.update(question_params_up)
       redirect_to action: :index
