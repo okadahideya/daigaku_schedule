@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
   def create
     @question_new = Question.new(question_params)
     if @question_new.save
-      redirect_to action: :index
+      redirect_to action: :index 
     else
       render :new
     end

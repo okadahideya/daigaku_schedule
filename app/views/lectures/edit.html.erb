@@ -1,1 +1,15 @@
 <h1>講義内容編集</h1>
+
+<%= form_for @lecture, local: true do |f| %>
+  <div>講義画像</div>
+    <%= f.file_field :lecture_image, class: 'hidden' %>
+  
+  <div>講義名</div>
+    <%= f.text_field :lecture_title %>
+  
+  <div>講義内容</div>
+    <%= f.text_field :contents %>
+  <div>
+
+    <%= f.submit '登録'%>
+<% end %>

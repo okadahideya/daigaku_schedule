@@ -19,15 +19,23 @@ class LecturesController < ApplicationController
   end
 
   def edit
+    @lecture = Lecture.find(params[:id])
   end
 
   def update
+    @lecture = Lecture.find(params[:id])
+    if @lecture.update(lecture_params)
+      redirect_to lecture_path(@lecture.professor_id)
+    else
+      render :edit
+    end
   end
 
-  def destory
+  def destroy
+    @lecture = Lecture.find(params[:id])
+    @lecture.destroy
+    redirect_to lecture_path(@lecture.professor_id)
   end
-
-
 
   private
 
