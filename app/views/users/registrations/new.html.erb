@@ -1,8 +1,10 @@
-<h2>Sign up</h2>
+<h1>新規登録</h1>
+<%= render "users/shared/links" %>
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
-
+<div class="top-field">
   <div class="field">
     <%= f.label '名前/name' %><br />
     <%= f.text_field :name, autofocus: true %>
@@ -52,8 +54,8 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規登録" %>
   </div>
 <% end %>
+</div>
 
-<%= render "users/shared/links" %>
