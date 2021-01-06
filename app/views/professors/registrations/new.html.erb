@@ -1,21 +1,31 @@
-<h2>新規登録</h2>
+<div class="registaration-main">
+  <div class="registration-header">
+    <div class="registration-title">教授 新規登録</div>
+  </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "professors/shared/error_messages", resource: resource %>
+
+  <%= render "professors/shared/links" %>
+  <%= link_to '教授ログイン（閲覧用）', professors_guest_sign_in_path, method: :post %>
+
+
+  <div class="registration-field-main">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
 
   <div class="field">
     <%= f.label '名前/name' %><br />
-    <%= f.text_field :name_p, autofocus: true %>
+    <%= f.text_field :name_p, autofocus: true, class: 'registration-field' %>
   </div>
 
   <div class="field">
     <%= f.label 'カタカナ/name' %><br />
-    <%= f.text_field :name_k_p, autofocus: true %>
+    <%= f.text_field :name_k_p, autofocus: true, class: 'registration-field'  %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'registration-field'  %>
   </div>
 
   <div class="field">
@@ -23,48 +33,50 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: 'registration-field'  %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'registration-field'  %>
   </div>
 
   <div class="field">
     <%= f.label '大学名/university' %><br />
-    <%= f.text_field :university_p, autofocus: true %>
+    <%= f.text_field :university_p, autofocus: true, class: 'registration-field'  %>
   </div>
 
   <div class="field">
     <%= f.label '学部/undergraduate' %><br />
-    <%= f.text_field :undergraduate_p, autofocus: true %>
+    <%= f.text_field :undergraduate_p, autofocus: true, class: 'registration-field'  %>
   </div>
 
   <div class="field">
     <%= f.label '学科/department' %><br />
-    <%= f.text_field :department_p, autofocus: true %>
+    <%= f.text_field :department_p, autofocus: true, class: 'registration-field'  %>
   </div>
 
   <div class="field">
   <span class="image-file">プロフィール画像</span>
-  <%= f.file_field :image, class: 'hidden' %>
+  <%= f.file_field :image, class: 'registration-field' %>
   </div>
 
   <div class="field">
     <%= f.label '自己紹介/professors_detail' %><br />
-    <%= f.text_field :professors_detail, autofocus: true %>
+    <%= f.text_field :professors_detail, autofocus: true, class: 'registration-field' %>
   </div>
 
   <div class="field">
     <%= f.label '資格/qualification' %><br />
-    <%= f.text_field :qualification, autofocus: true %>
+    <%= f.text_field :qualification, autofocus: true, class: 'registration-field' %>
   </div>
-
 
   <div class="actions">
     <%= f.submit "新規登録" %>
   </div>
 <% end %>
+</div>
+</div>
 
-<%= render "professors/shared/links" %>
+
+

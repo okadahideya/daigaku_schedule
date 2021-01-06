@@ -24,7 +24,6 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @lecture_detail = LectureDetail.find(params[:id])
     @question = Question.find(params[:id])
     if @question.update(question_params_up)
       redirect_to action: :index
@@ -36,8 +35,6 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @answer = Answer.where(question_id: @question.id)
-    #@answers = Answer.where(question_id: params[:id]).pluck(:answer_text)
-    #@answer_t = Answer.find(params[:id])
   end
 
   def destroy

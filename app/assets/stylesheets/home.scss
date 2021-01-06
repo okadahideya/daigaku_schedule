@@ -8,14 +8,19 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-image: url('top_page.jpg'), linear-gradient(#c9ffbf, #ffafbd);
-  background-blend-mode: multiply;
+  background-image: url('top_page.jpg');
+  background-color:rgba(255,255,255,0.8);
+  background-blend-mode:soft-light;
 }
 
 .top-page-name{
   font-size: 80px;
-  color: black;
+  color: #DA8E00;
+  background: -webkit-linear-gradient(-45deg, #F7DE05, #DA8E00, #EDAC06, #F7DE05, #ECB802, #DAAF08, #B67B03, #DA8E00, #EDAC06, #F7DE05, #ECB802, #EDAC06);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
 
 .top-page-list{
   border-width: 4px;
@@ -26,5 +31,4 @@
   background: #0bd;
   color: #fff;
   border-radius: 5px;
-
 }

@@ -1,5 +1,4 @@
-<div class="login-boby"></div>
-  <div class="grad"></div>
+<div class="body"></div>
   <div class="login-header">
     <div>大学<span>Life</span></div>
   </div>
@@ -24,9 +23,10 @@
   <% end %>
 
   <div class="login-button">
-    <%= f.submit "ログイン" %>
+    <%= f.submit "教授ログイン" %>
   </div>
 <% end %>
-
+<%= link_to '教授ログイン（閲覧用）', professors_guest_sign_in_path, method: :post %>
+<br>
 <%= render "professors/shared/links" %>
 </div>

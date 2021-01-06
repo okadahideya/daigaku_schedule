@@ -1,6 +1,11 @@
 class Professor < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+  def self.guest
+    find_or_create_by!(email: 'gesto@gmail.com')
+  end
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one_attached :image

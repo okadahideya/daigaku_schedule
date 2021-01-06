@@ -1,6 +1,6 @@
 <h1>Q&A</h1>
 
-<%= form_with model: @question, url: lecture_detail_question_path(@question.lecture_detail_id), local: true  do |f| %>
+<%= form_with model: @question, url: lecture_detail_question_path(@question, @question.lecture_detail_id, @question.id), local: true  do |f| %>
   <div>編集質問フォーム</div><%= f.text_field :question_text %>
   <%= f.submit "編集する" %>
 <% end %>
