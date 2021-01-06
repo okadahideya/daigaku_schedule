@@ -17,8 +17,8 @@
 
 /* 新規登録 */
 
-.registaration-main{
-  background-image: url('top_page.jpg');
+.registration-main{
+  background-image: image-url('top_page.jpg');
 }
 
 .registration-header{
