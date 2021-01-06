@@ -14,3 +14,77 @@
  *= require_tree .
  *= require_self
  */
+
+/* 新規登録 */
+
+.registaration-main{
+  background-image: url('top_page.jpg');
+}
+
+.registration-header{
+  font-size: 40px;
+  color: #fff;
+}
+
+.field{
+  color: #fff;
+  padding: 10px;
+}
+
+.registration-field{
+  width: 300px;
+  height: 20px;
+}
+
+.registration-field-main{
+  display: inline-block;
+  align-items: center;
+}
+
+.registration-field-login{
+  color: #fff;
+}
+
+/* ログイン */
+
+.body{
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -40px;
+  bottom: -40px;
+  width: auto;
+  height: auto;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65)));
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.login-header{
+  position: absolute;
+  top: calc(50% - 35px);
+  left: calc(50% - 255px);
+  z-index: 2;
+}
+
+.login-header div{
+  float: left;
+  color: #fff;
+  font-family: 'Exo', sans-serif;
+  font-size: 40px;
+  font-weight: 200;
+}
+
+.login-header div span{
+  color: #5379fa !important;
+}
+
+.login{
+  position: absolute;
+  top: calc(50% - 75px);
+  left: calc(50% - 50px);
+  height: 150px;
+  width: 350px;
+  padding: 10px;
+  z-index: 2;
+}

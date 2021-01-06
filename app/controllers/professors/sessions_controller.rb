@@ -32,4 +32,10 @@ class Professors::SessionsController < Devise::SessionsController
   def after_sign_out_path_for(resource)
     root_path
   end
+
+  def new_guest
+    professor = Professor.guest
+    sign_in professor   # ユーザーをログインさせる
+    redirect_to professors_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
 end

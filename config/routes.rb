@@ -7,11 +7,19 @@ Rails.application.routes.draw do
     registrations: 'professors/registrations'
   }
 
+  devise_scope :professor do
+    post 'professors/guest_sign_in', to: 'professors/sessions#new_guest'
+  end
+
   devise_for :users, controllers: {
     sessions:      'users/sessions',
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
+
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
   
   scope :professors do
     resources :professors

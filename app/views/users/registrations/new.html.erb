@@ -1,26 +1,36 @@
-<h2>Sign up</h2>
+<div class="registaration-main">
+  <div class="registration-header">
+    <div class="registration-title">生徒 新規登録</div>
+  </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+  <%= render "users/shared/links" %>
+  <%= link_to '生徒ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post%>
+<br>
+
+  <div class="registration-field-main">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
+
 
   <div class="field">
     <%= f.label '名前/name' %><br />
-    <%= f.text_field :name, autofocus: true %>
+    <%= f.text_field :name, autofocus: true, class: 'registration-field' %>
   </div>
 
   <div class="field">
     <%= f.label 'カタカナ/name' %><br />
-    <%= f.text_field :name_k, autofocus: true %>
+    <%= f.text_field :name_k, autofocus: true, class: 'registration-field'  %>
   </div>
 
   <div class="field">
     <%= f.label 'ブラウザ名/nickname' %><br />
-    <%= f.text_field :nickname, autofocus: true %>
+    <%= f.text_field :nickname, autofocus: true, class: 'registration-field'  %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'registration-field'  %>
   </div>
 
   <div class="field">
@@ -28,32 +38,33 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: 'registration-field'  %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'registration-field'  %>
   </div>
 
   <div class="field">
     <%= f.label '大学名/university' %><br />
-    <%= f.text_field :university, autofocus: true %>
+    <%= f.text_field :university, autofocus: true, class: 'registration-field'  %>
   </div>
 
   <div class="field">
     <%= f.label '学部/undergraduate' %><br />
-    <%= f.text_field :undergraduate, autofocus: true %>
+    <%= f.text_field :undergraduate, autofocus: true, class: 'registration-field'  %>
   </div>
 
   <div class="field">
     <%= f.label '学科/department' %><br />
-    <%= f.text_field :department, autofocus: true %>
+    <%= f.text_field :department, autofocus: true, class: 'registration-field'  %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規登録" %>
   </div>
 <% end %>
+</div>
+</div>
 
-<%= render "users/shared/links" %>
