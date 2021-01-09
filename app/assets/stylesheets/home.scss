@@ -41,8 +41,9 @@
 }
 
 .registration-header{
-  font-size: 40px;
+  font-size: 50px;
   color: #fff;
+  padding: 40px;
 }
 
 .field{
@@ -51,9 +52,18 @@
 }
 
 .registration-field{
-  width: 300px;
-  height: 20px;
+  width: 400px;
+  height: 30px;
+  ;
 }
+
+.registration-field-detail{
+  width: 600px;
+  height: 300px;
+  overflow: scroll;
+  text-align:left;
+}
+
 
 .registration-field-main{
   display: inline-block;
@@ -65,6 +75,10 @@
 }
 
 /* ログイン */
+
+.login-mei{
+  color: #fff;
+}
 
 .body{
   position: absolute;

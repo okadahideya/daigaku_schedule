@@ -3,9 +3,9 @@
     <div class="registration-title">生徒 新規登録</div>
   </div>
 
-
+<div class="mx-auto" style="width: 200px;">
   <%= render "users/shared/links" %>
-  <%= link_to '生徒ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post%>
+  <%= link_to '生徒ゲスト（閲覧用）', users_guest_sign_in_path, method: :post, class: "login-mei"%>
 <br>
 
   <div class="registration-field-main">
@@ -67,4 +67,4 @@
 <% end %>
 </div>
 </div>
-
+</div>

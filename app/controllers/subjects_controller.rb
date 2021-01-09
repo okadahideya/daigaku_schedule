@@ -2,7 +2,9 @@ class SubjectsController < ApplicationController
   before_action :search_product, only: [:show, :search, :edit]
 
   def index
-    @schedules = Schedule.where(user_id: current_user.id)
+    require 'date'
+    date = DateTime.now
+    @schedules = Schedule.where(user_id: current_user.id).order(start_time: :asc)
   end
 
   def new

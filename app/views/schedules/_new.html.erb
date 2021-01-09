@@ -1,26 +1,32 @@
-<h1>schedule</h1>
+<h1>スケジュール張</h1>
 
 <div>予定</div>
-<% schedules.each do |f| %>
-<%= f.start_time %>
-<%= f.title %>
-<%= f.time%>
-<%= f.area %>
-<%= f.text %>
-<br>
-<% end%>
+<div class="d-flex justify-content-around">
+<% schedules.first(8).each do |f| %>
 
+<div class="card" style="width: 18rem; margin: 0 10px;">
+  <div class="card-body">
+    <h5 class="card-title"><%= f.start_time %> <%= "#{f.time.strftime('%H:%M')}" %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= f.title %></h6>
+    <p class="card-text"><%= f.text %></p>
+    <p class="card-text"><%= f.area %></p>
+  </div>
+</div>
+
+<% end%>
+</div>
+
+<div class="mx-auto" style="width: 200px;">
 <%= form_with model: @schedules_new, url: schedules_path, method: :POST, local: true  do |f| %>
   <%= f.date_select :start_time, {use_month_numbers: true, start_year: 2020}, class:"reservation-select" %>
+  <div>時間：</div><%= f.time_select :time %>
   <div>タイトル：</div><%= f.text_field :title %>
   <div>詳細：</div><%= f.text_field :text %>
   <div>場所：</div><%= f.text_field :area %>
-  <div>時間：</div><%= f.time_select :time %>
   <br>
   <%= f.submit "登録" %>
 <% end %>
-
-
+</div>
 
 <%= month_calendar events: schedules do |date, schedule| %>
   <%= date.day %>

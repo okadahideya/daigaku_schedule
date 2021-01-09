@@ -1,12 +1,43 @@
 
-<%= render "shared/header" %>
 
-<div class="title">
-    <%= link_to '教材登録', new_subject_path, metod: :get, class: 'subject-title' %>
-  <% if user_signed_in? %>
-    <%= link_to '教材登録一覧表', subject_path(current_user.id), class: 'subject-botton'%>
-    <%= link_to '講義検索', search_lecture_selects_path, class: 'subject-botton'%>
-  <% end %>
+<div class="d-flex justify-content-around">
+  <div class="my-box w-25">
+    <div class="card" style="width: 18rem;">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">・教材の登録を行えます！</h5>
+        <p class="card-text">学年と時期に合わせて、科目や単位、曜日など登録を行うことができ、教材管理ができます。</p>
+        <%= link_to '教材登録', new_subject_path, metod: :get, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="my-box w-25">
+    <div class="card" style="width: 18rem;">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">・登録した教材を確認できます！</h5>
+        <p class="card-text">学年と時期によって、登録した教材の確認、単位の合計等確認できます。</p>
+        <%= link_to '教材登録一覧表', subject_path(current_user.id), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="my-box w-25">
+    <div class="card" style="width: 18rem;">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">・講義の検索を行えます！</h5>
+        <p class="card-text">教授が登録した講義、講義内容、講義で使用した資料の確認、提出物の提出やQ＆Aも行えます。</p>
+        <%= link_to '講義検索', search_lecture_selects_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
 </div>
+
+    <%#= link_to '教材登録', new_subject_path, metod: :get, class: 'subject-title' %>
+    <%#= link_to '教材登録一覧表', subject_path(current_user.id), class: 'subject-botton'%>
+    <%#= link_to '講義検索', search_lecture_selects_path, class: 'subject-botton'%>
 
 <%= render partial: "schedules/new", locals: { schedules: @schedules } %>
