@@ -2,8 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.schedule-plan{
+  font-size: 20px;
+}
+
+.schedule-field{
+  width: 300px;
+}
+
+.schedule-text{
+  width: 500px;
+  height: 100px;
+}
 
 
+/* スケジュール表*/
 .simple-calendar {
   table {
     -webkit-border-horizontal-spacing: 0px;

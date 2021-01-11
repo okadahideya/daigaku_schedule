@@ -1,7 +1,6 @@
 
-
+<div class="container-fluid">
 <h1>教材登録一覧</h1>
-
 <%= search_form_for @p, url: subjects_search_path do |f| %>
   <%= f.label :subject_grade_genre_id_eq, '学年：' %>
   <%= f.select(:subject_grade_genre_id_eq, SubjectDetail.grade.map { |s| [s[:name], s[:id]] }) %>
@@ -10,30 +9,39 @@
   <%= f.select(:subject_period_genre_id_eq, SubjectDetail.period.map { |s| [s[:name], s[:id]] })%>
   <br>
   <%= f.submit '検索' %>
+</div>
 
     <div class="block">
       <%#= link_to '教材の更新・編集', edit_subject_path(f.id), method: :get %>
     </div>
   </div>
+</div>
 
- <br>
-  <%= '教材一覧' %>
-    <% @subject_details.each do |ff| %>
-  <td>
-  <br>
-  <li>
-    <%= ff.curriculum %>
-    <%= ff.unit %>
-    <%= genre_select[ff.select_genre_id] %>
-    <%= genre_week[ff.week_genre_id] %>
-    <%= genre_time[ff.time_genre_id] %>
-    <%= genre_result[ff.result_genre_id] %>
-  </li>
-    <% end %>
-    <br>
-  <%= "単位合計" %> <%= @unit_sum %>
+ <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">講義名</th>
+      <th scope="col">単位</th>
+      <th scope="col">科目</th>
+      <th scope="col">曜日</th>
+      <th scope="col">何限</th>
+      <th scope="col">結果</th>
+    </tr>
+  </thead>
+  <% @subject_details.each do |ff| %>
+  <tbody>
+    <tr>
+      <th scope="row"></th>
+      <td><%= ff.curriculum %></td>
+      <td><%= ff.unit %></td>
+      <td><%= genre_select[ff.select_genre_id] %></td>
+      <td><%= genre_week[ff.week_genre_id] %></td>
+      <td><%= genre_time[ff.time_genre_id] %></td>
+      <td><%= genre_result[ff.result_genre_id] %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+<%= "単位合計" %> <%= @unit_sum %>
 <% end %>
-
-
-
- 

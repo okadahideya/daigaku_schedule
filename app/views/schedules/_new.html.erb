@@ -1,6 +1,7 @@
+<div class="container-fluid">
 <h1>スケジュール張</h1>
 
-<div>予定</div>
+
 <div class="d-flex justify-content-around">
 <% schedules.first(8).each do |f| %>
 
@@ -12,27 +13,31 @@
     <p class="card-text"><%= f.area %></p>
   </div>
 </div>
-
 <% end%>
 </div>
+</div>
 
-<div class="mx-auto" style="width: 200px;">
+<div class="container-fluid">
+<div class="mx-auto" style="width: 200px; margin: 40px;">
+<div class="schedule-plan">予定の保存を行えます</div>
 <%= form_with model: @schedules_new, url: schedules_path, method: :POST, local: true  do |f| %>
   <%= f.date_select :start_time, {use_month_numbers: true, start_year: 2020}, class:"reservation-select" %>
   <div>時間：</div><%= f.time_select :time %>
-  <div>タイトル：</div><%= f.text_field :title %>
-  <div>詳細：</div><%= f.text_field :text %>
-  <div>場所：</div><%= f.text_field :area %>
+  <div>場所：</div><%= f.text_field :area, class: "schedule-field"%>
+  <div>タイトル：</div><%= f.text_area :title, class: "schedule-field" %>
+  <div>詳細：</div><%= f.text_area :text, class: "schedule-text"%>
   <br>
-  <%= f.submit "登録" %>
+  <%= f.submit "予定を保存" %>
 <% end %>
 </div>
+</div>
 
+<div class="container-fluid">
 <%= month_calendar events: schedules do |date, schedule| %>
   <%= date.day %>
   <% schedule.each do |f| %>
       <%= link_to f.title, edit_schedule_path(f.id),  method: :get, class: "text-primary" %>
   <% end %>
 <% end %>
-
+</div>
 

@@ -1,6 +1,8 @@
 
+<div class="container-fluid">
 <div class="d-flex">
   <div class="my-box flex-grow-1"><%= link_to '大学 Life', subjects_path, method: :get %></div>
   <div class="my-box"><%= link_to "#{current_user.nickname}", edit_user_registration_path %></div>
   <div class="my-box"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
+</div>
 </div>
