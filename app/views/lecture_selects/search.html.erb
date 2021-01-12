@@ -1,13 +1,15 @@
-<h1>講義の検索</h1>
 
-<%= form_with(url: search_lecture_selects_path, local: true, method: :get, class: "search-form") do |f| %>
-  <%= f.text_field :search, placeholder: "講義を検索する", class: "search-input" %>
-  <%= f.submit "検索", class: "search-btn" %>
-<% end %>
-<div class="contents row">
-  <% @lecture.each do |ff| %>
-  <%= link_to ff.lecture_title, lecture_select_path(ff.id), method: :get %>
-  <br>
-<% end %>
+<div class="container-fluid">
+    <h1>講義の検索</h1>
+    <%= form_with(url: search_lecture_selects_path, local: true, method: :get, class: "search-form") do |f| %>
+    <%= f.text_field :search, placeholder: "講義を検索する", class: "search-input" %>
+    <%= f.submit "検索", class: "search-btn" %>
+    <% end %>
+  <div class="container-fluid">
+    <div>講義一覧</div>
+    <% @lecture.each do |ff| %>
+    <%= link_to ff.lecture_title, lecture_select_path(ff.id), method: :get %>
+    <br>
+  <% end %>
+  </div>
 </div>
-

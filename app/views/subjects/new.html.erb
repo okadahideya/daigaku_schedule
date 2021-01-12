@@ -1,10 +1,14 @@
-<div class="subject-new">
- <div class="university-main">大学名: <%= @user.university %></div>
-  <div class="undergraduate-main">学部: <%= @user.undergraduate %></div>
-  <div class="department-main">学科: <%= @user.department %></div>
-  <div class="subject-registration-main">教材の登録をしてください</div>
 
+<div class="container-fluid">
+  <div class="subject-new">
+    <div class="university-main">大学名: <%= @user.university %></div>
+    <div class="undergraduate-main">学部: <%= @user.undergraduate %></div>
+    <div class="department-main">学科: <%= @user.department %></div>
+</div>
 
+<div class="subject-registration-main">教材の登録をしてください</div>
+
+<div class="container-fluid">
   <%= form_for @subject, local: true do |f| %>
   <div class="grade-period">
     <div class="block">
@@ -20,9 +24,9 @@
         </div>
         <%= f.select(:period_genre_id, SubjectDetail.period.map { |s| [s[:name], s[:id]] })%>
     </div>
-
+</div>
   
-
+<div class="container-fluid">
   <%= f.fields_for :subject_details do |subject_detail_fields| %>
      <%= render 'subject_detail_fields', f: subject_detail_fields %>
   <% end %>
@@ -32,9 +36,9 @@
 
     <div class="sell-btn-contents">
       <%= f.submit "保存" ,class:"sell-btn" %>
-      <%=link_to '戻る', root_path, class:"back-btn" %>
+      <%=link_to '戻る', subjects_path, class:"back-btn" %>
     </div>
   <% end %>
-
+</div>
 
 </div>

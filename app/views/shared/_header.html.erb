@@ -1,14 +1,18 @@
-<header class='top-page-header wrapper'>
-  <%= link_to '大学 Life', subjects_path, method: :get, class: "header-title" %>
-  <div class="sign">
-    <ul class="sign-user">
-      <% if user_signed_in? %>
-        <li><%= link_to "#{current_user.nickname}", edit_user_registration_path, class: 'user-nickname' %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logout' %></li>
-      <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path, class: 'login' %></li>
-        <li><%= link_to '新規登録', new_user_registration_path, class: 'sign-up' %></li>
-      <% end %>
-    </ul>
+
+<div class="container-fluid">
+<header class="header-3">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="my-box flex-grow-1"><%= link_to '大学 Life', subjects_path, method: :get, class: "header-title" %></div>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav-item">
+        <div class="header-post"><%= link_to "#{current_user.nickname}", edit_user_registration_path %></div>
+      </div>
+      <div class="header-nav-item">
+        <div class="header-logout"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
+      </div>
+    </nav>
   </div>
 </header>
+</div>

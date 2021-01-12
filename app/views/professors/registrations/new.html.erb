@@ -3,9 +3,9 @@
     <div class="registration-title">教授 新規登録</div>
   </div>
 
-
+<div class="mx-auto" style="width: 200px;">
   <%= render "professors/shared/links" %>
-  <%= link_to '教授ログイン（閲覧用）', professors_guest_sign_in_path, method: :post %>
+  <%= link_to '教授ゲスト（閲覧用）', professors_guest_sign_in_path, method: :post, class: "login-mei"  %>
   <br>
 
   <div class="registration-field-main">
@@ -61,20 +61,22 @@
   <%= f.file_field :image, class: 'registration-field' %>
   </div>
 
+  
   <div class="field">
     <%= f.label '自己紹介/professors_detail' %><br />
-    <%= f.text_field :professors_detail, autofocus: true, class: 'registration-field' %>
+    <%= f.text_area :professors_detail, autofocus: true, class: 'registration-field-detail' %>
   </div>
 
   <div class="field">
     <%= f.label '資格/qualification' %><br />
-    <%= f.text_field :qualification, autofocus: true, class: 'registration-field' %>
+    <%= f.text_area :qualification, autofocus: true, class: 'registration-field-detail' %>
   </div>
 
   <div class="actions">
     <%= f.submit "新規登録" %>
   </div>
 <% end %>
+</div>
 </div>
 </div>
 

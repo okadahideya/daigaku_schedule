@@ -1,5 +1,40 @@
-<%= render "professors/header" %>
 
-<%= link_to 'プロフィール', professor_path(current_professor.id) %>
-<%= link_to '講義登録', new_lecture_path %>
-<%= link_to '登録講義一覧', lecture_path(current_professor.id) %>
+<div class="d-flex justify-content-around">
+  <div class="my-box w-25">
+    <div class="card" style="width: 18rem;">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">・プロフィール！</h5>
+        <p class="card-text">登録したプロフィールの確認ができます。</p>
+        <%= link_to 'プロフィール', professor_path(current_professor.id), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="my-box w-25">
+    <div class="card" style="width: 18rem;">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">・講義の登録を行えます！</h5>
+        <p class="card-text">こちらから行う講義の登録を行えます。</p>
+        <%= link_to '講義登録', new_lecture_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="my-box w-25">
+    <div class="card" style="width: 18rem;">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">・登録した講義の一覧！</h5>
+        <p class="card-text">行った講義の登録、生徒の提出物、Q＆Aを確認できます。</p>
+        <%= link_to '登録講義一覧', lecture_path(current_professor.id), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%#= link_to 'プロフィール', professor_path(current_professor.id) %>
+<%#= link_to '講義登録', new_lecture_path %>
+<%#= link_to '登録講義一覧', lecture_path(current_professor.id) %>

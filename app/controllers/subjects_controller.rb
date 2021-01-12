@@ -2,23 +2,22 @@ class SubjectsController < ApplicationController
   before_action :search_product, only: [:show, :search, :edit]
 
   def index
-    @schedules = Schedule.where(user_id: current_user.id)
+    @schedules = Schedule.where(user_id: current_user.id).order(start_time: :asc)
   end
 
   def new
     @user = current_user
-    if user_signed_in?
-      @subject = Subject.new
-      @subject_details = @subject.subject_details.build
-    else
-      render :index
-    end
+    @subject = Subject.new
+    @subject_details = @subject.subject_details.build
+    @subject_details = @subject.subject_details.build
+    @subject_details = @subject.subject_details.build
   end
 
   def create
+    @user = current_user
     @subject = Subject.new(subject_params)
    if @subject.save
-     redirect_to root_path
+     redirect_to subjects_path
    else
      render :new
    end
