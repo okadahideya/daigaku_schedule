@@ -1,8 +1,18 @@
 
 <div class="container-fluid">
-<div class="d-flex">
-  <div class="my-box flex-grow-1"><%= link_to '大学 Life', subjects_path, method: :get %></div>
-  <div class="my-box"><%= link_to "#{current_user.nickname}", edit_user_registration_path %></div>
-  <div class="my-box"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
-</div>
+<header class="header-3">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="my-box flex-grow-1"><%= link_to '大学 Life', subjects_path, method: :get, class: "header-title" %></div>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav-item">
+        <div class="header-post"><%= link_to "#{current_user.nickname}", edit_user_registration_path %></div>
+      </div>
+      <div class="header-nav-item">
+        <div class="header-logout"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
+      </div>
+    </nav>
+  </div>
+</header>
 </div>
