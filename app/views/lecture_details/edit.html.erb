@@ -1,3 +1,4 @@
+<div class="container-fluid">
 <h1>講義編集</h1>
 
 <%= form_with model:@lecture_detail, url: lecture_lecture_detail_path(@lecture_detail.lecture_id), local: true do |f| %>
@@ -15,3 +16,4 @@
   <br>
   <%= f.submit '更新' %>
 <% end %>
+</div>
