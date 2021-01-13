@@ -1,14 +1,30 @@
+<div class="container-fluid">
+<div class="lecture">
 <h1>講義詳細</h1>
+<div class="">
+  <div class="lecture-list">
+    <div class="list-title">教授名
+    <div class="list-lecture"><%= link_to @lecture.professor.name_p, professor_path(@lecture.professor_id) %></div>
+    </div>
+  </div>
 
-<div>
-<%= link_to @lecture.professor.name_p, professor_path(@lecture.professor_id) %>
-<br>
-<%= @lecture.lecture_title %>
-<br>
-<%= image_tag @lecture.lecture_image.variant(resize: '300x300'), class: 'professor_image' if @lecture.lecture_image.attached? %>
-<br>
-<%= @lecture.contents %>
+  <div>
+    <div class="list-title">講義名</div>
+    <div class="list-lecture"><%= @lecture.lecture_title %></div>
+    
+  </div>
 
+  <div>
+    <div class="list-title"></div>
+    <div class="list-lecture"><%= image_tag @lecture.lecture_image.variant(resize: '300x300'), class: 'professor_image' if @lecture.lecture_image.attached? %></div>
+  </div>
+
+  <div>
+    <div class="list-title">講義内容</div>
+    <div class="list-lecture"><%= @lecture.contents %></div>
+  </div>
+
+</div>
 </div>
 
 <% @lecture_detail.each do |f| %>
@@ -16,3 +32,4 @@
   <%= link_to f.lecture_title_list, lecture_detail_path(f.id) %>
   <br>
 <% end %>
+</div>
