@@ -5,20 +5,28 @@
 
 /* 講義一覧 */
 
+.lecture-main-title{
+  font-size: 40px;
+}
+
 .lecture{
   text-align: center;
-  background-color: green;
 }
 
 .lecture-list{
-  text-align: center;
-  background-color: orange;
 }
 
 .list-title{
+  font-size: 20px;
+}
+
+.lecture-day{
   display: flex;
-  background-color: blue;
   margin: 20px;
+}
+
+.lecture-day-list{
+  margin-left: 20px;
 }
 
 /* 生徒検索フォーム */
