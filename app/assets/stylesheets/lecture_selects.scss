@@ -1,3 +1,65 @@
 // Place all the styles related to the lecture_selects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* 講義一覧 */
+
+.lecture{
+  text-align: center;
+  background-color: green;
+}
+
+.lecture-list{
+  text-align: center;
+  background-color: orange;
+}
+
+.list-title{
+  display: flex;
+  background-color: blue;
+  margin: 20px;
+}
+
+/* 生徒検索フォーム */
+.select-text{
+  font-size: 30px;
+}
+
+.search-form{
+  text-align: center;
+  margin: 10px;
+}
+
+.search-input{
+  width: 300px;
+  height: 30px;
+}
+
+.select-field{
+  text-align: center;
+  border: 1ex solid black;
+}
+
+
+.select-main{
+  font-size: 35px;
+  align-items: center;
+}
+
+.select-list{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border: 1ex solid black;
+}
+
+.select-lecture{
+  font-size: 30px;
+  width: 468px;
+  height: 100px;
+  border: 1px solid #fff;
+  background-color:orange;
+  text-align: center;
+  line-height: 150px;
+}
