@@ -15,3 +15,7 @@
  *= require_self
  */
 
+.background{
+  background-image: linear-gradient(#c9ffbf, #ffafbd);
+  min-height: 100vh;
+}

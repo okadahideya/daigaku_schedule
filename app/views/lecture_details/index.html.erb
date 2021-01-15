@@ -1,27 +1,41 @@
 <div class="container-fluid">
-<h1>講義詳細</h1>
+  <div class='lecture-details'>
+    <%= link_to '戻る', lecture_path(current_professor.id), metod: :get %>
+    <br>
+    <%= link_to '講義更新', new_lecture_lecture_detail_path(@lecture.id), metod: :get %>
+    <br>
 
-<div class='lecture-details'>
+    <div class="container-fluid">
+      <div class="lecture">
+        <h1 class="lecture-main-title">講義詳細</h1>
+        <div class="lecture-list">
+        <div class="list-title">教授名: <%= @lecture.professor.name_p %></div>
+      </div>
 
-<%= link_to '戻る', lecture_path(current_professor.id), metod: :get %>
-<br>
-<%= link_to '講義更新', new_lecture_lecture_detail_path(@lecture.id), metod: :get %>
-<br>
+      <div class="lecture-list">
+        <div class="list-title">講義名: <%= @lecture.lecture_title %></div>
+      </div>
 
+      <div class="lecture-list">
+        <div class="list-title"><%= image_tag @lecture.lecture_image.variant(resize: '300x300'), class: 'professor_image' if @lecture.lecture_image.attached? %></div>
+      </div>
 
-<%= @lecture.lecture_title %>
-<br>
-<%= image_tag @lecture.lecture_image.variant(resize: '300x300'), class: 'professor_image' if @lecture.lecture_image.attached? %>
-<br>
-<%= @lecture.contents %>
+      <div class="lecture-list-detail">
+        <div class="list-title-detail">講義内容 </div>
+        <div class="list-title"><%= @lecture.contents %></div>
+      </div>
+    </div>
 
-</div>
-
-<% @lecture_detail.each do |f| %>
-  <%= f.lecture_date %>
-  <%= link_to f.lecture_title_list, lecture_lecture_detail_path(@lecture_detail, f.id), method: :get %>
-  <%= link_to '編集', edit_lecture_lecture_detail_path(@lecture_detail, f.id), method: :get %>
-  <%= link_to '削除', lecture_lecture_detail_path(@lecture_detail, f.id), method: :delete %>
-  <br>
-<% end %>
+  
+    <% @lecture_detail.each do |f| %>
+    <div class="d-flex justify-content-center">
+        <div class="lecture-day">講義日: 
+        <div class="lecture-day-list"><%= f.lecture_date %></div>
+        </div>
+      <div class="lecture-day">講義タイトル: 
+        <div class="lecture-day-list"><%= link_to f.lecture_title_list, lecture_lecture_detail_path(@lecture_detail, f.id), method: :get %></div>
+      </div>
+      <br>
+    </div>
+    <% end %>
 </div>

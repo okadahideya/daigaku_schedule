@@ -13,8 +13,8 @@
       <div class="list-title"><%= image_tag @lecture.lecture_image.variant(resize: '300x300'), class: 'professor_image' if @lecture.lecture_image.attached? %></div>
     </div>
 
-    <div class="lecture-list">
-      <div class="list-title">講義内容: </div>
+    <div class="lecture-list-detail">
+      <div class="list-title-detail">講義内容 </div>
       <div class="list-title"><%= @lecture.contents%></div>
     </div>
   </div>
