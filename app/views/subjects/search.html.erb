@@ -7,7 +7,6 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col"></th>
       <th scope="col">講義名</th>
       <th scope="col">単位</th>
       <th scope="col">科目</th>
@@ -20,7 +19,6 @@
   <% @results.each do |result| %>
     <tbody>
       <tr>
-        <th scope="row"></th>
         <td><%= result.curriculum %></td>
         <td><%= result.unit %></td>
         <td><%= genre_select[result.select_genre_id] %></td>

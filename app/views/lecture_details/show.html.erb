@@ -1,22 +1,32 @@
 <div class="container-fluid">
-<%= @lecture_detail.lecture_title_list %>
-<br>
-  <%= link_to @lecture_detail.lecture_office.filename, rails_blob_path(@lecture_detail.lecture_office, disposition: 'attachment') %>
-<br>
-  <%= @lecture_detail.lecture_text%>
-<br>
-<h1>こちらから提出してください</h1>
+<table class="tbl-r02">
+  <tr>
+    <th>講義タイトル</th>
+    <td><%= @lecture_detail.lecture_title_list %></td>
+  </tr>
+  <tr>
+    <th>講義資料</th>
+    <td><%= link_to @lecture_detail.lecture_office.filename, rails_blob_path(@lecture_detail.lecture_office, disposition: 'attachment') %></td>
+  </tr>
+  <tr class="last">
+    <th>講義メモ</th>
+    <td><%= @lecture_detail.lecture_text%></td>
+  </tr>
+  <tr class="last">
+    <th>質問はこちらから</th>
+    <td>
+      <% if user_signed_in? %>
+        <%= link_to 'Q&A', lecture_detail_questions_path(@lecture_detail.id) %>
+      <% end %>
+      <% if professor_signed_in? %>
+        <%= link_to 'Q&A',  lecture_lecture_detail_questions_path(@lecture_detail.id, @lecture_detail) %>
+      <% end %>
+    </td>
+  </tr>
+</table>
 
+<h1>こちらから提出してください</h1>
 <%#= link_to '提出する', new_submission_path, method: :get %>
 <%= render partial: "submissions/new", locals: { submissions: @submission } %>
-<br>
-
-<% if user_signed_in? %>
-  <%= link_to 'Q&A', lecture_detail_questions_path(@lecture_detail.id) %>
-<% end %>
-
-<% if professor_signed_in? %>
-  <%= link_to 'Q&A',  lecture_lecture_detail_questions_path(@lecture_detail.id, @lecture_detail) %>
-<% end %>
 
 </div>

@@ -26,16 +26,19 @@
       </div>
     </div>
 
-  
+    <div>講義内容は、下記の講義タイトルから確認できます！
     <% @lecture_detail.each do |f| %>
-    <div class="d-flex justify-content-center">
-        <div class="lecture-day">講義日: 
-        <div class="lecture-day-list"><%= f.lecture_date %></div>
-        </div>
-      <div class="lecture-day">講義タイトル: 
-        <div class="lecture-day-list"><%= link_to f.lecture_title_list, lecture_lecture_detail_path(@lecture_detail, f.id), method: :get %></div>
+      <div class="d-flex justify-content-center">
+        <table>
+          <tbody>
+              <tr>
+                <th>講義日</th>
+                <td><%= f.lecture_date %></td>
+                <th>講義タイトル</th>
+                <td><%= link_to f.lecture_title_list, lecture_lecture_detail_path(@lecture_detail, f.id), method: :get %></td>
+              </tr>
+          </tbody>
+        </table>
       </div>
-      <br>
-    </div>
     <% end %>
 </div>

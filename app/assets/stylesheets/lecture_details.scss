@@ -1,3 +1,63 @@
 // Place all the styles related to the lecture_details controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+table {
+  border-collapse: separate;  /* 表の線と線の間を空ける */
+  border-spacing:  5px;       /* 表の線と線の間の幅 */
+  margin: 20px auto;
+}
+
+th,td {
+  padding: 5px 10px;          /* 余白指定 */
+}
+
+th {
+  background-color:  #3F51B5; /* 背景色指定 */
+  color:  #fff;               /* 文字色指定 */
+  font-weight:  normal;       /* 文字の太さ指定 */
+}
+
+td {
+  background-color:  #c0c9ff; /* 背景色指定 */
+}
+
+
+/* lecture-detail show */
+
+p {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 60px auto 40px;
+}
+table {
+  margin: 20px auto;
+}
+.tbl-r02 th {
+  background: #e9727e;
+  border: solid 1px #ccc;
+  color: #fff;
+  padding: 10px;
+}
+.tbl-r02 td {
+　border: solid 1px #ccc;
+  padding: 10px;
+}
+ 
+@media screen and (max-width: 640px) {
+  .last td:last-child {
+    border-bottom: solid 1px #ccc;
+    width: 100%;
+  }
+  .tbl-r02 {
+    width: 80%;
+  }
+  .tbl-r02 th,
+  .tbl-r02 td {
+　　border-bottom: none;
+    display: block;
+    width: 100%;
+  }
+}
+ 

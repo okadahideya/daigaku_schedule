@@ -13,6 +13,7 @@
   <% if professor_signed_in? %>
     <%= f.user.name %>
     <%= link_to f.user_office.filename, rails_blob_path(f.user_office, disposition: 'attachment') %>
+    <br>
   <% end %>
 
   <% if user_signed_in? %>
