@@ -1,7 +1,9 @@
+<div class="container-fluid">
 <% if professor_signed_in? %>
   <div>回答編集フォーム</div>
   <%= form_with model:@answer, url: lecture_lecture_detail_question_answer_path(@question, @question.lecture_detail_id, @question.id, @answer.id), local: true do |f| %>
-  <%= f.text_field :answer_text %>
+  <%= f.text_area :answer_text, class: "answer-text-area-edit" %>
   <%= f.submit '編集する' %>
 <% end %>
 <% end %>
+</div>

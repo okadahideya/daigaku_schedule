@@ -1,6 +1,7 @@
-<h1>Q&A</h1>
-
+<div class="container-fluid">
+<div class="question-title">Q&A</div>
 <%= form_with model: @question, url: lecture_detail_question_path(@question, @question.lecture_detail_id, @question.id), local: true  do |f| %>
-  <div>編集質問フォーム</div><%= f.text_field :question_text %>
+  <div>編集質問フォーム</div><%= f.text_area :question_text, class: "question-text-area-edit" %>
   <%= f.submit "編集する" %>
 <% end %>
+</div>

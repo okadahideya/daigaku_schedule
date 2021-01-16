@@ -1,6 +1,7 @@
 <%if user_signed_in? %>
 <%= form_with model: @question_new, url: lecture_detail_questions_path(@lecture_detail.id), method: :POST, local: true  do |f| %>
-  <div>質問フォーム</div><%= f.text_field :question_text %>
+  <div>質問フォーム</div><%= f.text_area :question_text, class: "question-text-area" %>
+  <br>
   <%= f.submit "質問を投稿する" %>
 <% end %>
 <% end %>

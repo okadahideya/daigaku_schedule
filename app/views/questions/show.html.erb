@@ -1,16 +1,17 @@
-<h1>回答</h1>
-
-<%= render partial: "answers/new", locals: { answer: @answer } %>
-
-<div>Q :</div>
-<%= @question.question_text %>
-<br>
-<div>A :</div>
-<% @answer.each do |f| %>
-  <%= f.answer_text%>
+<div class="container-fluid">
+  <div class="answer-title">回答</div>
+    <%= render partial: "answers/new", locals: { answer: @answer } %>
+  <div>Q :</div>
+  <div class="question-text"><%= @question.question_text %></div>
+  <br>
+  <div>A :</div>
+  <% @answer.each do |f| %>
+  <div class="answer-text"><%= f.answer_text%></div>
+  <br>
     <% if professor_signed_in? %>
     <%= link_to '編集', edit_lecture_lecture_detail_question_answer_path(@answer, f.question_id, f.id), method: :get %>
     <%= link_to '削除', lecture_lecture_detail_question_answer_path(@answer, f.question_id, f.id), method: :delete %>
     <% end %>
   <br>
-<% end %>
+  <% end %>
+</div>

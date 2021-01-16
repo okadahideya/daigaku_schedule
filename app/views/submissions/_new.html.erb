@@ -21,6 +21,7 @@
       <%= current_user.name %>
       <%= link_to f.user_office.filename, rails_blob_path(f.user_office, disposition: 'attachment') %>
       <%= link_to '削除', lecture_detail_submission_path(submissions, f.id), method: :delete %>
+      <br>
     <% end %>  
   <% end %> 
 <% end %>

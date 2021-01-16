@@ -25,8 +25,8 @@
   </tr>
 </table>
 
-<h1>こちらから提出してください</h1>
+<div class="submisstion-text">こちらから提出してください
 <%#= link_to '提出する', new_submission_path, method: :get %>
 <%= render partial: "submissions/new", locals: { submissions: @submission } %>
-
+</div>
 </div>
