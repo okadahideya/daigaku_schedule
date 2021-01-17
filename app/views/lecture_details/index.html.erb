@@ -1,9 +1,8 @@
 <div class="container-fluid">
   <div class='lecture-details'>
-    <%= link_to '戻る', lecture_path(current_professor.id), metod: :get %>
-    <br>
+    
     <%= link_to '講義更新', new_lecture_lecture_detail_path(@lecture.id), metod: :get %>
-    <br>
+    <%= link_to '戻る', lecture_path(current_professor.id), metod: :get %>
 
     <div class="container-fluid">
       <div class="lecture">
@@ -25,10 +24,11 @@
         <div class="list-title"><%= @lecture.contents %></div>
       </div>
     </div>
-
-    <div>講義内容は、下記の講義タイトルから確認できます！
-    <% @lecture_detail.each do |f| %>
-      <div class="d-flex justify-content-center">
+  
+  <div class="d-flex flex-column">
+     <div class="">講義内容は、下記の講義タイトルから確認できます！</div>
+      
+      <% @lecture_detail.each do |f| %>
         <table>
           <tbody>
               <tr>
@@ -39,6 +39,6 @@
               </tr>
           </tbody>
         </table>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 </div>

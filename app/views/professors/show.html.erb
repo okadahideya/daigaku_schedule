@@ -1,39 +1,42 @@
-<h1>プロフィール</h1>
+<div class="container-fluid">
+  <h1 class="professor-tilte">プロフィール</h1>
+  <div class="professor-main">
+    
+    <div class="professor-list">
+      <%= image_tag @professor.image.variant(resize: '300x300'), class: 'professor_image' if @professor.image.attached? %>
+    </div>
+    
+    <div class="professor-flex">
+      <div class="professor-title-list">★教授名★</div>
+      <div class="professor-list"><%= @professor.name_p %>(<%= @professor.name_k_p %>)</div>
+    </div>
+    
+    <div class="professor-flex">
+      <div class="professor-title-list">★大学名/学部/学科★</div>
+      <div class="professor-list"><%= @professor.university_p %>/<%= @professor.undergraduate_p %>/<%= @professor.department_p %></div>
+    </div>
 
-<div>
-  <%= image_tag @professor.image.variant(resize: '300x300'), class: 'professor_image' if @professor.image.attached? %>
-</div>
+    <div class="professor-flex">
+    <div class="professor-title-list">★経歴★</div>
+    <div class="professor-list"><%= @professor.professors_detail %></div>
+    </div>
+      
+    <div class="professor-flex">
+    <div class="professor-title-list">★資格★</div>
+    <div class="professor-list"><%= @professor.qualification %></div>
+    </div>
+    
 
+  </div>
+    <% if professor_signed_in? %>
+    <% if current_professor.id == @professor.id%>
+      <%= link_to '編集', edit_professor_registration_path %>
+      <%= link_to 'トップページ', professors_path, metod: :get %>
+    <% end %>
+    <% end %>
 
-<div>
-<%= @professor.name_p %>
-</div>
-<div>
-<%= @professor.name_k_p %>
-</div>
-<div>
-<%= @professor.university_p %>
-</div>
-<div>
-<%= @professor.undergraduate_p %>
-</div>
-<div>
-<%= @professor.department_p %>
-</div>
-<div>
-<%= @professor.professors_detail %>
-</div>
-<div>
-<%= @professor.qualification %>
-</div>
+    <% if user_signed_in? %>
+      <%= link_to 'トップページ', subjects_path, metod: :get %>
+    <% end %>
 
-<% if professor_signed_in? %>
-<% if current_professor.id == @professor.id%>
-  <%= link_to '編集', edit_professor_registration_path %>
-  <%= link_to 'トップページ', professors_path, metod: :get %>
-<% end %>
-<% end %>
-
-<% if user_signed_in? %>
-  <%= link_to 'トップページ', subjects_path, metod: :get %>
-<% end %>
+</div>

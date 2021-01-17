@@ -1,12 +1,13 @@
-
-  <h1>講義登録</h1>
+<div class="container-fluid">
+  <h1 class="lecture-new-edit">講義登録</h1>
   <%= form_for @lecture, local: true do |f| %>
   <div>講義画像</div>
     <%= f.file_field :lecture_image, class: 'hidden' %>
   <div>講義名</div>
-    <%= f.text_field :lecture_title %>
+    <%= f.text_area :lecture_title, class: "lecture-text-area" %>
   <div>講義内容</div>
-    <%= f.text_field :contents %>
+    <%= f.text_area :contents, class: "lecture-text-area-content" %>
   <div>
     <%= f.submit '登録'%>
   <% end %>
+</DIV>
