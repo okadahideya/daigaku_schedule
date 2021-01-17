@@ -11,18 +11,22 @@
 
 <% submissions.each do |f| %>
   <% if professor_signed_in? %>
+  <div class="submisstion-box">
     <%= f.user.name %>
     <%= link_to f.user_office.filename, rails_blob_path(f.user_office, disposition: 'attachment') %>
     <br>
+    </div>
   <% end %>
-
+  
+  
   <% if user_signed_in? %>
     <% if current_user.id == f.user_id%>
+    <div class="submisstion-box">
       <%= current_user.name %>
       <%= link_to f.user_office.filename, rails_blob_path(f.user_office, disposition: 'attachment') %>
       <%= link_to '削除', lecture_detail_submission_path(submissions, f.id), method: :delete %>
       <br>
-    <% end %>  
+    </div>
+    <% end %> 
   <% end %> 
 <% end %>
-

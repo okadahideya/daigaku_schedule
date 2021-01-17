@@ -1,13 +1,18 @@
 <div class="container-fluid">
-<h1>講義一覧</h1>
+<h1>ご登録した講義の一覧になります</h1>
 
-<div>講義名</div>
-<% @lecture.each do |f| %>
-  <%= link_to f.lecture_title, lecture_lecture_details_path(f.id), method: :get %>
-  <%= link_to '編集', edit_lecture_path(f.id), method: :get %>
-  <%= link_to '削除', lecture_path(f.id), method: :delete %>
-  <br>
-<% end %>
-
-<%= link_to 'トップページ', professors_path, metod: :get %>
+<div class="select-field">
+  <div class="select-main-s">講義名</div>
+</div>
+<div class="select-list">
+  <% @lecture.each do |f| %>
+    <div class="select-lecture"><%= link_to f.lecture_title, lecture_lecture_details_path(f.id), method: :get %></div>
+    <div class="select-lecture-edit"><%= link_to '編集', edit_lecture_path(f.id), method: :get %>
+      <div class="select-lecture-edit"><%= link_to '削除', lecture_path(f.id), method: :delete %></div>
+    </div>
+    <br>
+    
+  <% end %>
+</div>
+<%#= link_to 'トップページ', professors_path, metod: :get %>
 </div>

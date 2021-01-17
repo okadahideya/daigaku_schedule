@@ -10,9 +10,9 @@
   <div class="select-field">
     <div class="select-main-s">講義一覧</div>
   </div>
-    <div class="select-list">
+  <div class="select-list">
     <% @lecture.each do |ff| %>
-    <div class="select-lecture"><%= link_to ff.lecture_title, lecture_select_path(ff.id), method: :get%></div>
-  <% end %>
+      <div class="select-lecture"><%= link_to ff.lecture_title, lecture_select_path(ff.id), method: :get%></div>
+    <% end %>
   </div>
 </div>
