@@ -1,9 +1,11 @@
 <div class="container-fluid">
 <table class="tbl-r02">
+  <% if professor_signed_in? %>
   <tr>
     <th>編集</th>
     <td><%= link_to "編集を行う", edit_lecture_lecture_detail_path(@lecture_detail, @lecture_detail.id), metod: :get %></td>
   </tr>
+  <% end %>
   <tr>
     <th>講義タイトル</th>
     <td><%= @lecture_detail.lecture_title_list %></td>

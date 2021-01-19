@@ -9,10 +9,11 @@
     <%= f.select(:subject_period_genre_id_eq, SubjectDetail.period.map { |s| [s[:name], s[:id]] })%>
     <br>
     <%= f.submit '検索' %>
-</div>
+
 
       <%#= link_to '教材の更新・編集', edit_subject_path(f.id), method: :get %>
-
+      <br>
+      <%= "単位 総合計" %> <%= @unit_sum %>
 
     <table class="table">
       <thead class="thead-dark">
@@ -38,5 +39,6 @@
       </tbody>
     <% end %>
     </table>
-    <%= "単位合計" %> <%= @unit_sum %>
+    
 <% end %>
+</div>
