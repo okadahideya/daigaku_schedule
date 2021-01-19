@@ -1,5 +1,5 @@
 <div class="container-fluid">
-<h1>スケジュール張</h1>
+<div class="schedule-tilte">★近日のスケジュール</div>
 
 
 <div class="d-flex justify-content-around">
@@ -18,8 +18,8 @@
 </div>
 
 <div class="container-fluid">
-<div class="mx-auto" style="width: 200px; margin: 40px;">
-<div class="schedule-plan">予定の保存を行えます</div>
+<div class="mx-auto" style="width: 400px; margin: 40px;">
+<div class="schedule-plan">★スケジュールの保存を行えます</div>
 <%= form_with model: @schedules_new, url: schedules_path, method: :POST, local: true  do |f| %>
   <%= f.date_select :start_time, {use_month_numbers: true, start_year: 2020}, class:"reservation-select" %>
   <div>時間：</div><%= f.time_select :time %>
