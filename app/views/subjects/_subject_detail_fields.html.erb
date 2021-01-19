@@ -45,5 +45,5 @@
       </div>
       <%= f.select(:result_genre_id, SubjectDetail.result.map { |s| [s[:name], s[:id]] })%>
     </div>
-    <%= link_to_remove_association '削除', f, class: 'registration' %>
+    <%= link_to_remove_association '削除', f, class: 'registration-delete' %>
 </div>

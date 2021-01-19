@@ -1,40 +1,36 @@
 <div class="container-fluid">
-<h1>
-  教材一覧
-</h1>
-<%# 検索結果の個数で条件分岐 %>
-</div>
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">講義名</th>
-      <th scope="col">単位</th>
-      <th scope="col">科目</th>
-      <th scope="col">曜日</th>
-      <th scope="col">何限</th>
-      <th scope="col">結果</th>
-    </tr>
-  </thead>
-  <% if @results.length !=0 %>
-  <% @results.each do |result| %>
-    <tbody>
+  <div class="result-title">検索結果　講義一覧</div>
+  <%# 検索結果の個数で条件分岐 %>
+  <div class="results-unit-sum"><%= "単位合計" %><%= @results_unit %></div>
+  <table class="table">
+    <thead class="thead-dark">
       <tr>
-        <td><%= result.curriculum %></td>
-        <td><%= result.unit %></td>
-        <td><%= genre_select[result.select_genre_id] %></td>
-        <td><%= genre_week[result.week_genre_id] %></td>
-        <td><%= genre_time[result.time_genre_id] %></td>
-        <td><%= genre_result[result.result_genre_id] %></td>
+        <th scope="col">講義名</th>
+        <th scope="col">単位</th>
+        <th scope="col">科目</th>
+        <th scope="col">曜日</th>
+        <th scope="col">何限</th>
+        <th scope="col">結果</th>
       </tr>
-    </tbody>
-  <% end %>
+    </thead>
+    <% if @results.length !=0 %>
+    <% @results.each do |result| %>
+      <tbody>
+        <tr>
+          <td><%= result.curriculum %></td>
+          <td><%= result.unit %></td>
+          <td><%= genre_select[result.select_genre_id] %></td>
+          <td><%= genre_week[result.week_genre_id] %></td>
+          <td><%= genre_time[result.time_genre_id] %></td>
+          <td><%= genre_result[result.result_genre_id] %></td>
+        </tr>
+      </tbody>
+    <% end %>
   </table>
-  </tbody>
   <% else %>
   該当する教材はありません
   <% end %>
 </table>
-<%= "単位合計" %>
-<%= @results_unit %>
 <br>
 <%= link_to 'トップページへ戻る', subjects_path, metod: :get %>
+</div>

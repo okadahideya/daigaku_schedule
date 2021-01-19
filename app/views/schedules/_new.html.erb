@@ -4,7 +4,6 @@
 
 <div class="d-flex justify-content-around">
 <% schedules.first(8).each do |f| %>
-
 <div class="card" style="width: 18rem; margin: 0 10px;">
   <div class="card-body">
     <h5 class="card-title"><%= f.start_time %> <%= "#{f.time.strftime('%H:%M')}" %></h5>
