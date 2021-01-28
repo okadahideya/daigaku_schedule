@@ -13,12 +13,12 @@
 http://18.181.102.182/
 
 # 使用技術
-言語：Ruby
-フレームワーク：Ruby on Rails
-フロント：Javascript(JQuery)
-テスト：RSpec
-インフラ：AWS(EC2, S3)
-ソースコード管理：GitHub
+言語：Ruby  
+フレームワーク：Ruby on Rails  
+フロント：Javascript(JQuery)  
+テスト：RSpec  
+インフラ：AWS(EC2, S3)  
+ソースコード管理：GitHub  
 
 # 機能
 ## ログイン機能
