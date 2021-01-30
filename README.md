@@ -12,7 +12,10 @@
 # URL
 
 環境は、AWSになります。  
-http://18.181.102.182/
+http://18.181.102.182/  
+
+![7f0df0782a9ff00e430b5f8d9a977bdd](https://user-images.githubusercontent.com/73088476/106346509-11360b80-62fb-11eb-8354-438c80fd52dc.jpg)
+
 
 
 # 使用技術
