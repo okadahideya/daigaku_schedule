@@ -47,7 +47,7 @@ http://18.181.102.182/
 
 
 ### ・ダウンロード式で資料の読み込みできるようにしました
-https://user-images.githubusercontent.com/73088476/106348435-9fb18980-6309-11eb-80bc-5f3282ffe5e0.mp4
+![Videotogif](https://user-images.githubusercontent.com/73088476/106348785-35e6af00-630c-11eb-8bee-79e314e7e9e4.gif)
 
 
 
