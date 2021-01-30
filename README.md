@@ -41,6 +41,7 @@ http://18.181.102.182/
 
 
 ### ・Q＆Aを行った日の講義に対して質疑できるようにした
+講義タイトルによって、Q&Aの内容が異なるようにしてます。  
 ![c2842374f1c43df971aef27c20e54098](https://user-images.githubusercontent.com/73088476/106348285-80662c80-6308-11eb-811f-070bdacdd671.png)
 ![3672e1ad9b438f1cdd961862cfd022ae](https://user-images.githubusercontent.com/73088476/106348288-88be6780-6308-11eb-8b5e-6775c05aa54e.png)
 
