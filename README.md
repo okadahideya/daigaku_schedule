@@ -2,7 +2,9 @@
 
 # アプリケーション名
 
-大学生向け自己管理アプリ
+大学生向け自己管理アプリ  
+![knowledge-1052014_1920](https://user-images.githubusercontent.com/73088476/106346379-0464e800-62fa-11eb-8a3f-9d935e61e93c.jpg)
+
 
 # 概要
 
